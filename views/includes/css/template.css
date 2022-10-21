@@ -1,0 +1,107 @@
+
+body{
+    background-color: #F5F5F5; 
+    font-family: 'Nunito Sans';
+}
+.bg-primary{
+    background: #900C3E;
+}
+.bg-fade{
+    background: rgb(95,0,0);
+    background: linear-gradient(180deg, rgba(95,0,0,1) 0%, rgba(199,0,59,1) 100%);
+}
+.bg-secondary{
+    background-color: #F5F5F5;
+}
+.btns-container{
+    margin-right: 4vw;
+    gap: 10px;
+}
+.input{
+    outline: none;
+}
+
+
+/* SEARCHBAR */
+.searchbar{
+    min-height:60px;
+    font-size: 25px;
+    font-weight: 400;
+}
+.input-btn-search{
+    background: #900C3E;
+    transition: 0.2s;
+
+}
+.input-btn-search:hover{
+    background-color: #75002d;
+    color: #c9c9c9;
+    transition: 0.2s;
+}
+
+
+/* BTN-LOGIN */
+.input-btn-login{
+    color: #F5F5F5;
+    background: #900C3E;
+    padding: 0.9rem;
+    padding-inline: 3rem;
+    border: solid 3px #F5F5F5;
+    font-size: 29px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.2s;
+}
+.input-btn-login:hover{
+    background-color: #75002d;
+    color: #c9c9c9;
+    transition: 0.2s;
+    border: solid 3px #c9c9c9;
+}
+
+
+/* BTN-REGISTRO */
+.input-btn-registro{
+    color: #900C3E;
+    padding: 0.9rem;
+    padding-inline: 3rem;
+    margin-right: 3rem;
+    border: solid 3px #F5F5F5;
+    font-size: 29px;
+    font-weight: 500;
+    background-color: #F5F5F5;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.2s;
+}
+.input-btn-registro:hover{
+    background-color: #c9c9c9;
+    border: solid 3px #c9c9c9;
+    transition: 0.2s;
+
+}
+
+/* Title form Login/Registro */
+.title{
+    font-size: 45px;
+    font-weight: 700;
+}
+.form-registro{
+    height: 70%;
+}
+.input-btn-submit{
+    border-radius: 10px;
+    font-size: 30px;
+    width: 35%;
+    font-weight: 800;
+    color:#900C3E;
+    background-color: #F5F5F5;
+    border: 4px solid #900C3E;
+}
+.input-registro{
+    border-radius: 10px;
+    font-size: 30px;
+    width: 35%;
+    font-weight: 800;
+    color:#900C3E;
+    background-color: #F5F5F5;
+    border: 4px solid #900C3E;
+}
