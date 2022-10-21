@@ -1,18 +1,20 @@
 include includes/template.pug
 body
-    .w-full.flex.justify-stretch.h-full
+    .w-full.flex.h-full
         .flex.bg-fade.h-full.justify-center.m-0(class="w-3/4")
             img.flex.h-96.image.self-center(src='images/logo.png')
-        .bg-secondary.h-full(class="w-1/4")
+        .bg-secondary.h-full.flexbox(class="container-registro")
             h1.title.text-center.w-full.mt-5 REGISTRO 
-
-            form.border.form-registro(action="/registrar", method="post")
-                .justify-center.flex
-                    .input-registro.text-center.place-content-center.flex.items-center
-                        input(type="text", name="name" placeholder=" Nome")
-                input(type="email", name="email" placeholder=" Email")
-                input(type="password", name="password" placeholder=" Senha")
-                input(type="password", name="confirm_password" placeholder=" Confirmar Senha")
-                .justify-center.flex
-                    .input-btn-submit.text-center.place-content-center.flex.items-center
-                        input.w-full(type="submit" value="Registrar")
+            form.form-registro.pt-5.self-center(action="/registrar", method="post")
+                .container-form-registro
+                    .justify-center.flex
+                            input.input-registro.m-5(type="text", name="name" placeholder=" Nome")
+                    .justify-center.flex
+                            input.input-registro.m-5(type="email", name="email" placeholder=" Email")
+                    .justify-center.flex              
+                            input.input-registro.m-5(type="password", name="password" placeholder=" Senha")
+                    .justify-center.flex               
+                            input.input-registro.m-5(type="password", name="confirm_password" placeholder=" Confirmar Senha")
+                    .justify-center.flex
+                        .input-btn-submit.text-center.place-content-center.flex.items-center
+                            input.w-full(type="submit" value="Registrar")

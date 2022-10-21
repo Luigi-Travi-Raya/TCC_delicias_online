@@ -14,15 +14,16 @@ const tb_usuarios = database.define('tb_usuarios',{
     },
     nome_usuario:{
         type: Sequelize.STRING,
-        allowNull: false,
+        unique: true,
+        allowNull: false
     },
     email_usuario:{
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
     },
     senha_usuario:{
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
     },
     nome_foto_usuario:{
         type: Sequelize.STRING,

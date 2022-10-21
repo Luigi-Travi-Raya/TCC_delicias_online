@@ -31,11 +31,16 @@ app.get('/',(req,res)=>{
 app.get('/registro',(req,res)=>{
     Routes.registerRoute(req,res);
 })
+app.post('/registrar',(req,res)=>{
+    Routes.registerPostRoute(req,res);
+})
 
 app.get('/login',(req,res)=>{
     Routes.loginRoute(req,res);
 })
-
+app.post('/logar',(req,res)=>{
+    
+})
 
 let server = app.listen(port, () =>{
     console.log("Servidor rodando em http://localhost/");
