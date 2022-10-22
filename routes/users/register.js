@@ -13,9 +13,15 @@ const Registro = {
             console.log(fields.email + "\n")
             console.log(fields.password + "\n")
             console.log(fields.confirm_password + "\n")
-            if(fields.name=="" || fields.email==null || fields.password==null || fields.confirm_password==null){
-                console.log("redirecionando")
-                res.redirect('/')
+            if(fields.name=="" || fields.email=="" || fields.password=="" || fields.confirm_password==""){
+                console.log("Preencher todos campos");
+                let errRegistro = "missing_fields";
+                res.redirect('/login');
+            }
+            if(fields.password != fields.confirm_password){
+                console.log("Senhas diferentes");
+                let errRegistro = "passwords_not_matching";
+                res.redirect('/registro');
             }
         }
     )}
