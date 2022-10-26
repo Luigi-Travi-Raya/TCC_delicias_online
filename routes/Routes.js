@@ -10,8 +10,8 @@ const Routes = {
     registerRoute:(req,res)=>{
         register.route(req,res);
     },
-    registerPostRoute:(req,res)=>{
-        register.action(req,res);
+    registerPostRoute:(req,res,saltRounds)=>{
+        register.action(req,res,saltRounds);
     },
 
     loginRoute:(req,res)=>{

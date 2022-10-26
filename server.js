@@ -9,7 +9,9 @@ const session = require('express-session')
 
 const formidable = require('formidable');
 const pug = require('pug');
+const bcrypt = require('bcrypt');
 
+const saltRounds = 10;
 const port = 80;
 
 // Define 'public' como pasta para recursos
@@ -17,6 +19,13 @@ app.use(express.static('public'))
 
 // Define a template engine padrão para o Pug
 app.set('view engine','pug');
+
+// Inicia a session com uma chave aleatória
+app.use(session({
+    secret: 'dXAYmY4dZ5',
+    resave: false,
+    saveUninitialized: true
+}));
 
 //--------------------------ROTAS--------------------------
 app.get('/',(req,res)=>{
@@ -27,7 +36,7 @@ app.get('/registro',(req,res)=>{
     Routes.registerRoute(req,res);
 })
 app.post('/registrar',(req,res)=>{
-    Routes.registerPostRoute(req,res);
+    Routes.registerPostRoute(req,res,saltRounds);
 })
 
 app.get('/login',(req,res)=>{
