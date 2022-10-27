@@ -15,8 +15,11 @@ const Routes = {
     },
 
     loginRoute:(req,res)=>{
-        login.action(req,res);
+        login.route(req,res);
     },
+    loginPostRoute:(req,res)=>{
+        login.action(req,res);
+    }
 
 }
 

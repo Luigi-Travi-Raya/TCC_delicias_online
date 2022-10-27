@@ -43,7 +43,7 @@ app.get('/login',(req,res)=>{
     Routes.loginRoute(req,res);
 })
 app.post('/logar',(req,res)=>{
-    
+    Routes.loginPostRoute(req,res);
 })
 
 let server = app.listen(port, () =>{
