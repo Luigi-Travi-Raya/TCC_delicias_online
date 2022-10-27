@@ -27,7 +27,7 @@ const Registro = {
             }
             
             tb_usuarios.findAll({
-                where: {[Op.or]:[{nome_usuario: fields.name},{email_usuario: fields.email}]}
+                where: {nome_usuario: fields.name}
             }).then(result=>{
                 if(result != ""){
                     console.log("Usuário já cadastrado");
