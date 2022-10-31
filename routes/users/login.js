@@ -20,19 +20,19 @@ const Login = {
             tb_usuarios.findAll({
                 where:{nome_usuario: fields.name}
             }).then(result=>{
-                
+               
                 if(result == ""){
                     req.session.errLogin = "wrong_user_password";
                     return res.redirect('/login');
                 }
 
-                bcrypt.compare(fields.password, result[0]['senha_usuario'], function(err, result) {
-                    if(!result){
+                bcrypt.compare(fields.password, result[0]['senha_usuario'], function(err, resultCompare) {
+                    if(!resultCompare){
                         req.session.errLogin = "wrong_user_password";
                         return res.redirect('/login');
                     }
-
-                    req.session.logged = true;
+                    req.session.username = result[0]['nome_usuario']
+                    req.session.isLogged = true;
                     return res.redirect('/');
                 });
             })

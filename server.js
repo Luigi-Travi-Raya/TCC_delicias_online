@@ -45,6 +45,12 @@ app.get('/login',(req,res)=>{
 app.post('/logar',(req,res)=>{
     Routes.loginPostRoute(req,res);
 })
+app.get('/logout',(req,res)=>{
+    req.session.destroy(()=>{
+        res.redirect('/');
+    });
+
+})
 
 let server = app.listen(port, () =>{
     console.log("Servidor rodando em http://localhost/");

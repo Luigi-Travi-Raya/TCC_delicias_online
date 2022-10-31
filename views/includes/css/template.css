@@ -2,6 +2,7 @@
 body{
     background-color: #F5F5F5; 
     font-family: 'Nunito Sans';
+    width: 100vw;
 }
 .bg-primary{
     background: #900C3E;
@@ -21,17 +22,24 @@ body{
     outline: none;
 }
 
-
-/* SEARCHBAR */
+ /* !------------------------------HEADER------------------------------------------------- */
+.logo{
+    max-height: 5rem;
+}
 .searchbar{
-    min-height:60px;
-    font-size: 25px;
+    min-height:45px;
+    font-size: 22px;
     font-weight: 400;
 }
+.input-search{
+    border: none;
+    border-radius: 100px;
+}
+
 .input-btn-search{
     background: #900C3E;
     transition: 0.2s;
-
+    padding-inline: 20px;
 }
 .input-btn-search:hover{
     background-color: #75002d;
@@ -39,15 +47,14 @@ body{
     transition: 0.2s;
 }
 
-
 /* BTN-LOGIN */
 .input-btn-login{
     color: #F5F5F5;
     background: #900C3E;
-    padding: 0.9rem;
+    padding: 0.4rem;
     padding-inline: 3rem;
     border: solid 3px #F5F5F5;
-    font-size: 29px;
+    font-size: 22px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     transition: 0.2s;
 }
@@ -62,11 +69,11 @@ body{
 /* BTN-REGISTRO */
 .input-btn-registro{
     color: #900C3E;
-    padding: 0.9rem;
+    padding: 0.4rem;
     padding-inline: 3rem;
     margin-right: 3rem;
     border: solid 3px #F5F5F5;
-    font-size: 29px;
+    font-size: 22px;
     font-weight: 500;
     background-color: #F5F5F5;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -78,12 +85,21 @@ body{
     transition: 0.2s;
 
 }
-
-
 .container-registro{
     width: 35%;
     max-height: 80%;
 }
+.dropdown{
+    color:white;
+    font-size: 23px;
+}
+.dropdown:hover{
+    background-color: #900C3E;
+    color:white
+}
+
+
+/* !------------------------------ LOGIN/REGISTRO --------------------------------------------------------------*/
 /* Title form Login/Registro */
 .title{
     font-size: 45px;
@@ -94,24 +110,36 @@ body{
     height: 70%;
     margin-top: 23%;
 }
-.input-btn-submit{
+.input-btn{
     border-radius: 10px;
     font-size: 30px;
     margin-top: 7%;
-    width: 35%;
-    font-weight: 800;
+    width: 33%;
+    font-weight: 300;
+    transition: 0.2s;
+}
+.input-btn-voltar{
+    color:#900C3E;
+    background-color: #F5F5F5;
+    border: 3px solid #900C3E;
+}
+.input-btn-voltar:hover{
+    background-color: #c9c9c9;
+    border: solid 3px #900C3E;
+    transition: 0.2s;
+}
+.input-btn-submit{
+    cursor: pointer;
+    color:#F5F5F5;
+    background-color: #900C3E;
+    border: 3px solid #900C3E;
+}
+.input-btn-submit:hover{
+    
     color:#900C3E;
     background-color: #F5F5F5;
     border: 3px solid #900C3E;
     transition: 0.2s;
-
-}
-.input-btn-submit:hover{
-    background-color: #cfcece;
-    color: #6e0a30;
-    border: solid 3px #6e0a30;
-    transition: 0.2s;
-
 }
 .input-registro{
     border-radius: 10px;
@@ -122,4 +150,13 @@ body{
     color:#900C3E;
     background-color: #FFFFFF;
     border: 2px solid #900C3E;
+}
+.error{
+    width: 70%;
+    color: red;
+    font-size: 27px;
+    margin-bottom: -5px;
+}
+.error-img{
+    max-height: 30px;
 }

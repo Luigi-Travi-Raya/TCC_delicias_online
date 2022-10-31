@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 
 const Registro = {
     route:(req,res)=>{
-            res.render('registro',{erro:req.session.errRegistro});
+            res.render('/users/registro',{erro:req.session.errRegistro});
             console.log("Acessando registro.pug")
     },
     action:(req,res,saltRounds)=>{
@@ -29,29 +29,31 @@ const Registro = {
                     console.log("Usuário já cadastrado");
                     req.session.errRegistro = "user_exists";
                     return res.redirect('/registro');
-                }
-            })
+                }else{
 
-            tb_usuarios.findAll({
-                where: {email_usuario: fields.email}
-            }).then(result=>{
-                if(result != ""){
-                    console.log("Email já cadastrado");
-                    req.session.errRegistro = "email_exists";
-                    return res.redirect('/registro');
+                    tb_usuarios.findAll({
+                        where: {email_usuario: fields.email}
+                    }).then(result=>{
+                        if(result != ""){
+                            console.log("Email já cadastrado");
+                            req.session.errRegistro = "email_exists";
+                            return res.redirect('/registro');
+                        }
+                        
+                        bcrypt.hash(fields.password,saltRounds,(err,enc_password) => {
+                            tb_usuarios.create({
+                                nome_usuario: fields.name,
+                                email_usuario: fields.email,
+                                senha_usuario: enc_password,
+                                nome_foto_usuario: null
+                            })
+                        })
+                        req.session.username = result[0]['nome_usuario']
+                        req.session.isLogged = true;
+                        return res.redirect('/');
+                    })
                 }
             })
-            
-            bcrypt.hash(fields.password,saltRounds,(err,enc_password) => {
-                tb_usuarios.create({
-                    nome_usuario: fields.name,
-                    email_usuario: fields.email,
-                    senha_usuario: enc_password,
-                    nome_foto_usuario: null
-                })
-            })
-            req.session.logged = true;
-            return res.redirect('/');
         }
     )}
 }
