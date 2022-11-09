@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 
 const Registro = {
     route:(req,res)=>{
-            res.render('/users/registro',{erro:req.session.errRegistro});
+            res.render('registro',{erro:req.session.errRegistro});
             console.log("Acessando registro.pug")
     },
     action:(req,res,saltRounds)=>{
@@ -48,7 +48,7 @@ const Registro = {
                                 nome_foto_usuario: null
                             })
                         })
-                        req.session.username = result[0]['nome_usuario']
+                        req.session.username = fields.name
                         req.session.isLogged = true;
                         return res.redirect('/');
                     })

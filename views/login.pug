@@ -1,11 +1,11 @@
-include includes/template.pug
+include includes/layout/template.pug
 body 
     .w-full.flex.h-full
         .flex.bg-fade.h-full.justify-center.m-0(class="w-3/4")
             img.flex.h-96.image.self-center(src='images/logo.png')
         .bg-secondary.h-full.flexbox(class="container-registro")
             h1.title.text-center.w-full.mt-5 LOGIN 
-            form.form-registro.pt-5.self-center(action="/logar", method="post")
+            form.form-registro.pt-5.self-center(action="/user/logar", method="post")
                 .container-form-registro
                     .justify-center.flex
                         -if(erro == "wrong_user_password")

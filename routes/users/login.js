@@ -37,6 +37,11 @@ const Login = {
                 });
             })
         })
+    },
+    logout:(req,res)=>{
+        req.session.destroy(()=>{
+            res.redirect('/');
+        });
     }
 }
 

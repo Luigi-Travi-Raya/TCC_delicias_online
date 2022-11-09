@@ -35,22 +35,24 @@ app.get('/',(req,res)=>{
 app.get('/registro',(req,res)=>{
     Routes.registerRoute(req,res);
 })
-app.post('/registrar',(req,res)=>{
+app.post('/user/registrar',(req,res)=>{
     Routes.registerPostRoute(req,res,saltRounds);
 })
 
 app.get('/login',(req,res)=>{
     Routes.loginRoute(req,res);
 })
-app.post('/logar',(req,res)=>{
+app.post('/user/logar',(req,res)=>{
     Routes.loginPostRoute(req,res);
 })
-app.get('/logout',(req,res)=>{
-    req.session.destroy(()=>{
-        res.redirect('/');
-    });
-
+app.get('/user/logout',(req,res)=>{
+    Routes.logoutAction(req,res);
 })
+
+app.get('/preferences',(req,res)=>{
+    Routes.editRoute(req,res);
+})
+
 
 let server = app.listen(port, () =>{
     console.log("Servidor rodando em http://localhost/");

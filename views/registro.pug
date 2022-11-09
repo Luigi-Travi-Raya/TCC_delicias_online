@@ -1,11 +1,11 @@
-include includes/template.pug
+include includes/layout/template.pug
 body
     .w-full.flex.h-full
         .flex.bg-fade.h-full.justify-center.m-0(class="w-3/4")
             img.flex.h-96.image.self-center(src='images/logo.png')
         .bg-secondary.h-full.flexbox(class="container-registro")
             h1.title.text-center.w-full.mt-5 REGISTRO 
-            form.form-registro.pt-5.self-center(action="/registrar", method="post")
+            form.form-registro.pt-5.self-center(action="/user/registrar", method="post")
                 .container-form-registro
                     .justify-center.flex
                         -if (erro == 'user_exists')
@@ -24,6 +24,8 @@ body
                         input.input-registro.m-5(type="password", name="password" placeholder=" Senha")
                     .justify-center.flex               
                         input.input-registro.m-5(type="password", name="confirm_password" placeholder=" Confirmar Senha")
-                    .justify-center.flex
-                        .input-btn-submit.text-center.place-content-center.flex.items-center
-                            input.w-full(type="submit" value="Registrar")
+                    .justify-center.flex.gap-7
+                        .input-btn-voltar.input-btn.text-center.place-content-center.flex.items-center
+                            a.w-full(href="/")  Voltar
+                        .input-btn-submit.input-btn.text-center.place-content-center.flex.items-center
+                            input.w-full(style="cursor: pointer" type="submit" value="Registrar")

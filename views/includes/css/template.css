@@ -4,6 +4,7 @@ body{
     font-family: 'Nunito Sans';
     width: 100vw;
 }
+
 .bg-primary{
     background: #900C3E;
 }
@@ -37,6 +38,7 @@ body{
 }
 
 .input-btn-search{
+    cursor: pointer;
     background: #900C3E;
     transition: 0.2s;
     padding-inline: 20px;
@@ -49,6 +51,7 @@ body{
 
 /* BTN-LOGIN */
 .input-btn-login{
+    cursor: pointer;
     color: #F5F5F5;
     background: #900C3E;
     padding: 0.4rem;
@@ -68,6 +71,7 @@ body{
 
 /* BTN-REGISTRO */
 .input-btn-registro{
+    cursor: pointer;
     color: #900C3E;
     padding: 0.4rem;
     padding-inline: 3rem;
@@ -111,6 +115,7 @@ body{
     margin-top: 23%;
 }
 .input-btn{
+    cursor: pointer;
     border-radius: 10px;
     font-size: 30px;
     margin-top: 7%;
@@ -135,7 +140,6 @@ body{
     border: 3px solid #900C3E;
 }
 .input-btn-submit:hover{
-    
     color:#900C3E;
     background-color: #F5F5F5;
     border: 3px solid #900C3E;
