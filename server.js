@@ -59,4 +59,4 @@ let server = app.listen(port, () =>{
 });
 
 // Sincroniza sequelize com a DB
-Tables.start();
+// Tables.start();
