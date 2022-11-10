@@ -10,9 +10,12 @@ const session = require('express-session')
 const formidable = require('formidable');
 const pug = require('pug');
 const bcrypt = require('bcrypt');
+const {config} = require('dotenv')
+
+config();
 
 const saltRounds = 10;
-const port = 80;
+const port = process.env.PORT;
 
 // Define 'public' como pasta para recursos
 app.use(express.static('public'))
