@@ -3,6 +3,7 @@ body{
     background-color: #F5F5F5; 
     font-family: 'Nunito Sans';
     width: 100vw;
+    overflow-x: hidden;
 }
 
 .bg-primary{
@@ -85,7 +86,7 @@ body{
     color: #900C3E;
     padding: 0.4rem;
     padding-inline: 3rem;
-    margin-right: 3rem;
+    margin-right: 200px;
     border: solid 3px #F5F5F5;
     font-size: 22px;
     font-weight: 500;

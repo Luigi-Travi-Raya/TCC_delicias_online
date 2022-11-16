@@ -9,7 +9,7 @@ body
                     input.rounded-l-full.p-2.input.input-search(type="text" name="search")
                     input.rounded-full.p-1.pl-5.pr-5.input-btn-search.text-white( type="button" value="Buscar")
             
-            .container-sm.flex.btns-container(class="w-1/6")
+            .container-sm.flex.btns-container.m-5(class="w-1/6")
                 -if(!isLogged)
                     input.self-center.rounded-full.input-btn-login.place-end(class="left-1/2" type="button" value="Login" onclick="window.location = '/login';")
                     input.self-center.rounded-full.pl-5.pr-5.input-btn-registro(type="button" value="Registro" onclick="window.location = '/registro';")

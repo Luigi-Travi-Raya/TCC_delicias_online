@@ -40,17 +40,21 @@ const Registro = {
                         }
                         
                         bcrypt.hash(fields.password,saltRounds,(err,enc_password) => {
-                            tb_usuarios.create({
+                            const userData = tb_usuarios.create({
                                 nome_usuario: fields.name,
                                 email_usuario: fields.email,
                                 senha_usuario: enc_password,
                                 nome_foto_usuario: null
-                            }).then( tb_usuarios.findAll({where:{nome_usuario:fields.name}}).then(result=>{
+                            
+                        }).then(()=>{
+                           tb_usuarios.findAll({where:{email_usuario:fields.email}}).then(result=>{
                                 req.session.userId = result[0]["id_usuario"];         
                                 req.session.username = fields.name
                                 req.session.isLogged = true;
                                 return res.redirect('/');
-                            }))
+                            })
+                        })
+
                         })
 
                     })
