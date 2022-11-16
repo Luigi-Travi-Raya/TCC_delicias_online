@@ -22,7 +22,17 @@ body{
 .input{
     outline: none;
 }
-
+.input-form{
+    border-radius: 10px;
+    width: 70%;
+    padding: 3px;
+    font-size: 30px;
+    font-weight: 200;
+    color:#900C3E;
+    background-color: #FFFFFF;
+    border: 2px solid #900C3E;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 15px 0 rgba(0, 0, 0, 0.1);
+}
  /* !------------------------------HEADER------------------------------------------------- */
 .logo{
     max-height: 5rem;
@@ -122,6 +132,7 @@ body{
     width: 33%;
     font-weight: 300;
     transition: 0.2s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 15px 0 rgba(0, 0, 0, 0.1);
 }
 .input-btn-voltar{
     color:#900C3E;
@@ -154,6 +165,7 @@ body{
     color:#900C3E;
     background-color: #FFFFFF;
     border: 2px solid #900C3E;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 15px 0 rgba(0, 0, 0, 0.1);
 }
 .error{
     width: 70%;
@@ -163,4 +175,28 @@ body{
 }
 .error-img{
     max-height: 30px;
+}
+
+/* ---------------------------------Preferences----------------------------------- */
+
+.container-preferences{
+    box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.title{
+    font-weight: 200;
+    border-bottom: black solid 1px;
+}
+.title-menu{
+    font-size: 25px;
+    font-weight: 200;
+    border-bottom: black solid 1px;
+}
+.menu{
+    border-right: black solid 1px;
+}
+label{
+    font-size: 30px;
+}
+.input-preferences{
+    justify-self: end;  
 }

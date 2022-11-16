@@ -23,6 +23,7 @@ app.use(express.static('public'))
 // Define a template engine padrão para o Pug
 app.set('view engine','pug');
 
+
 // Inicia a session com uma chave aleatória
 app.use(session({
     secret: 'dXAYmY4dZ5',
@@ -53,7 +54,14 @@ app.get('/user/logout',(req,res)=>{
 })
 
 app.get('/preferences',(req,res)=>{
-    Routes.editRoute(req,res);
+    Routes.preferencesRoute(req,res,false);
+})
+app.get('/change_password',(req,res)=>{
+    Routes.preferencesRoute(req,res,true);
+})
+
+app.post('/user/edit', (req,res)=>{
+    Routes.preferencesPostRoute(req,res)
 })
 
 
@@ -62,4 +70,4 @@ let server = app.listen(port, () =>{
 });
 
 // Sincroniza sequelize com a DB
-// Tables.start();
+Tables.start();

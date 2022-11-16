@@ -31,9 +31,13 @@ const Login = {
                         req.session.errLogin = "wrong_user_password";
                         return res.redirect('/login');
                     }
-                    req.session.username = result[0]['nome_usuario']
-                    req.session.isLogged = true;
-                    return res.redirect('/');
+
+                    tb_usuarios.findAll({ where: {nome_usuario: fields.name}}).then(resultId=>{
+                        req.session.userId = resultId[0]["id_usuario"];
+                        req.session.username = result[0]['nome_usuario']
+                        req.session.isLogged = true;
+                        return res.redirect('/');
+                    })        
                 });
             })
         })

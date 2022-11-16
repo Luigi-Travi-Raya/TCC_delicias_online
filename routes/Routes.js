@@ -24,15 +24,10 @@ const Routes = {
     logoutAction:(req,res)=>{
         login.logout(req,res);
     },
-    
-    editRoute:(req,res)=>{
-        preferences.route(req,res);
-    },
 
-    preferencesRoute:(req,res)=>{
-        preferences.route(req,res);
+    preferencesRoute:(req,res,edit_pswrd)=>{
+        preferences.route(req,res,edit_pswrd);
     },
-    
     preferencesPostRoute:(req,res)=>{
         preferences.action(req,res);
     }

@@ -30,7 +30,6 @@ const Registro = {
                     req.session.errRegistro = "user_exists";
                     return res.redirect('/registro');
                 }else{
-
                     tb_usuarios.findAll({
                         where: {email_usuario: fields.email}
                     }).then(result=>{
@@ -46,11 +45,14 @@ const Registro = {
                                 email_usuario: fields.email,
                                 senha_usuario: enc_password,
                                 nome_foto_usuario: null
-                            })
+                            }).then( tb_usuarios.findAll({where:{nome_usuario:fields.name}}).then(result=>{
+                                req.session.userId = result[0]["id_usuario"];         
+                                req.session.username = fields.name
+                                req.session.isLogged = true;
+                                return res.redirect('/');
+                            }))
                         })
-                        req.session.username = fields.name
-                        req.session.isLogged = true;
-                        return res.redirect('/');
+
                     })
                 }
             })
