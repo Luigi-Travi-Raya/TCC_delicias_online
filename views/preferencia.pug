@@ -16,20 +16,17 @@ body
                         form.form-preferences.pt-5.self-center(action="/user/edit", method="post" enctype="multipart/form-data")
                             .container-form-registro.grid(class="grid-cols-2 ")  
                                 .justify-start.flex
-                                    -if (erro == 'user_exists')
-                                        label.mb-2(for="name")
-                                            p.absolute 
                                     label.self-center(for="name") Nome: 
                                 .justify-start.block.mb-5
                                     input.input-form.input-preferences.mt-5(type="text", name="name" value=userName)
-                                    -if (erro == 'passwords_not_matching')
+                                    -if (erro == 'user_taken')
                                         p.mt-2.text-base.text-red-600 Usuário já existe 
 
                                 .justify-start.flex
                                     label.self-center(for="email") Email:
                                 .justify-start.block.mb-5
                                     input.input-form.input-preferences.mt-5(type="email", name="email" value=userEmail)
-                                    -if (erro == 'passwords_not_matching')
+                                    -if (erro == 'email_exists')
                                         p.mt-2.text-base.text-red-600 Email já cadastrado
 
                                 .justify-start.flex
@@ -37,7 +34,7 @@ body
                                 .justify-start.block.mb-5
                                     label.input-form.input-preferences.mt-5.block.text-sm.cursor-pointer.flex.justify-center(for="img") 
                                         p.p-3 Escolha uma foto
-                                        input.w-full(type="file" id="img" name="img" style="display:none")
+                                        input.w-full(type="file" id="img" name="img" style="display:none" onchange="")
                                     -if (erro == 'file_not_valid')
                                         p.mt-2.text-base.text-red-600 Arquivo não é válido
                                         
@@ -49,17 +46,24 @@ body
                         form.form-preferences.pt-5.self-center(action="/user/edit_password", method="post")
                             .container-form-registro.grid(class="grid-cols-2 ")  
                                 .justify-start.flex            
-                                    label.self-center(for="password") Senha:
+                                    label.self-center(for="password") Senha atual:
                                 .justify-start.block.mb-5
                                     input.input-form.input-preferences.mt-5(type="password", name="password")
+                                    -if (erro == 'wrong_password')
+                                        p.mt-2.text-base.text-red-600 Senhas precisam ser iguais        
+
+                                .justify-start.flex            
+                                    label.self-center(for="new_password") Nova Senha:
+                                .justify-start.block.mb-5
+                                    input.input-form.input-preferences.mt-5(type="password", name="new_password")
                                     -if (erro == 'passwords_not_matching')
                                         p.mt-2.text-base.text-red-600 Senhas precisam ser iguais                                  
 
                                 .justify-start.flex               
-                                    label.self-center(for="confirm_password") Confirmar Senha:
+                                    label.self-center(for="confirm_password") Confirmar Nova Senha:
                                 .justify-start.block.mb-5
                                     input.input-form.input-preferences.mt-5(type="password", name="confirm_password")
 
                                 .justify-center.flex.col-span-2
                                     .input-btn-submit.input-btn.text-center.place-content-center.flex.items-center
-                                        input.w-full(style="cursor: pointer" type="submit" value="Salvar meus dados")
+                                        input.w-full(style="cursor: pointer" type="submit" value="Mudar minha senha")
