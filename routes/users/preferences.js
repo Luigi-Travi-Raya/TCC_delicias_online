@@ -24,7 +24,7 @@ const Edit = {
             }
         }
     },
-    action:(req,res)=>{
+    editData:(req,res)=>{
             let form = new formidable.IncomingForm();
             form.parse(req, (err1,fields,files)=>{
                 
@@ -33,23 +33,36 @@ const Edit = {
                     req.session.errEdit = "missing_fields";
                     return res.redirect('/preferences');
                 }
-                
+                tb_usuarios.findAll({where:{nome_usuario: fields.name }}).then(result=>{
+                    if(result != "" && result[0]['id_usuario'] != req.session.userId){
+                        req.session.errEdit = "user_taken";
+                        return res.redirect('/preferences');
+                    }
+                })
+                tb_usuarios.findAll({where:{email_usuario: fields.email }}).then(result=>{
+                    if(result != "" && result[0]['email_usuario'] != fields.email){
+                        req.session.errEdit = "email_exists";
+                        return res.redirect('/preferences');
+                    }
+                })
                 let imgPath = files.img.filepath;
                 let hash = crypto.createHash('md5').update(Date.now().toString()).digest('hex');
                 let imgName = hash + '.' + files.img.mimetype.split('/')[1];
 
                 let newImgPath = path.join(__dirname, '../../public/img' , imgName);
                 fs.rename(imgPath, newImgPath, (err) => { if (err) throw err})
-                tb_usuarios.update({
-                    nome_usuario: fields.name,
-                    email_usuario: fields.email,
-                    nome_foto_usuario: imgName
-                },
-                    {where:{id_usuario: req.session.userId}})
-            })
-            res.redirect('/');
-            
-        }
-    }
 
+                    tb_usuarios.update({
+                        nome_usuario: fields.name,
+                        email_usuario: fields.email,
+                        nome_foto_usuario: imgName
+                    },{where:{id_usuario: req.session.userId}} 
+                    )
+                 res.redirect('/');        
+            })
+    },
+    editPassword:(req,res)=>{
+        
+    }
+}
 module.exports = Edit;

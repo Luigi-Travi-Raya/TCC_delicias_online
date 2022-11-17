@@ -28,8 +28,11 @@ const Routes = {
     preferencesRoute:(req,res,edit_pswrd)=>{
         preferences.route(req,res,edit_pswrd);
     },
-    preferencesPostRoute:(req,res)=>{
-        preferences.action(req,res);
+    preferencesPostRoute:(req,res,edit_pswrd)=>{
+        if(edit_pswrd)
+            preferences.editPassword(req,res)
+        else
+            preferences.editData(req,res);
     }
 }
 

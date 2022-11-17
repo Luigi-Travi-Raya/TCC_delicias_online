@@ -61,7 +61,10 @@ app.get('/change_password',(req,res)=>{
 })
 
 app.post('/user/edit', (req,res)=>{
-    Routes.preferencesPostRoute(req,res)
+    Routes.preferencesPostRoute(req,res,false)
+})
+app.post('/user/edit_password', (req,res)=>{
+    Routes.preferencesPostRoute(req,res,true)
 })
 
 

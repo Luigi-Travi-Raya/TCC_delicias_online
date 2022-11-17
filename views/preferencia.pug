@@ -46,17 +46,17 @@ body
                                         input.w-full(style="cursor: pointer" type="submit" value="Salvar meus dados")
 
                     -else   
-                        form.form-preferences.pt-5.self-center(action="/user/edit", method="post")
+                        form.form-preferences.pt-5.self-center(action="/user/edit_password", method="post")
                             .container-form-registro.grid(class="grid-cols-2 ")  
                                 .justify-start.flex            
-                                    label.self-center(for="name") Senha:
+                                    label.self-center(for="password") Senha:
                                 .justify-start.block.mb-5
                                     input.input-form.input-preferences.mt-5(type="password", name="password")
                                     -if (erro == 'passwords_not_matching')
                                         p.mt-2.text-base.text-red-600 Senhas precisam ser iguais                                  
 
                                 .justify-start.flex               
-                                    label.self-center(for="name") Confirmar Senha:
+                                    label.self-center(for="confirm_password") Confirmar Senha:
                                 .justify-start.block.mb-5
                                     input.input-form.input-preferences.mt-5(type="password", name="confirm_password")
 
