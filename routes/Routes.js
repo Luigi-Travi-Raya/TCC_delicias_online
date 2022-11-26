@@ -2,6 +2,7 @@ const index = require("./index/index.js");
 const register = require("./users/register.js");
 const login = require("./users/login.js");
 const preferences = require("./users/preferences.js");
+const addRecipe = require("./recipes/addRecipe.js");
 
 const Routes = {
     indexRoute:(req,res)=>{
@@ -33,6 +34,10 @@ const Routes = {
             preferences.editPassword(req,res)
         else
             preferences.editData(req,res);
+    },
+
+    addRecipeRoute:(req,res)=>{
+        addRecipe.route(req,res);
     }
 }
 

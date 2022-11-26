@@ -39,9 +39,7 @@ const Edit = {
                     }
 
                     tb_usuarios.findAll({where:{email_usuario: fields.email }}).then(result=>{
-                        console.log(result[0]['email_usuario'])
                         if(result != "" && result[0]['id_usuario'] != req.session.userId){
-                            
                             req.session.errEdit = "email_exists";
                             return res.redirect('/preferences');
                         }

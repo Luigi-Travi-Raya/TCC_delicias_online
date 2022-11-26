@@ -16,7 +16,8 @@
     "formidable": "^2.0.1",
     "mysql2": "^2.3.3",
     "pug": "^3.0.2",
-    "sequelize": "^6.21.4"
+    "sequelize": "^6.21.4",
+    "tedious": "^15.1.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.20",

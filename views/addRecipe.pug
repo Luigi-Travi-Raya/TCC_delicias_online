@@ -1,0 +1,9 @@
+include includes/layout/template.pug
+body 
+    include includes/layout/header.pug
+    .w-full.bg-secondary.flex.justify-center 
+        .container-add.container.self-center.p-5.m-5.bg-white
+                .form.col-span-4.p-5
+                    -if(!editPassword)
+                        -console.log(editPassword)
+                        form.form-preferences.pt-5.self-center(action="/user/edit", method="post" enctype="multipart/form-data")

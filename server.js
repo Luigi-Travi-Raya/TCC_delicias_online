@@ -67,6 +67,9 @@ app.post('/user/edit_password', (req,res)=>{
     Routes.preferencesPostRoute(req,res,true)
 })
 
+app.get('/recipes/add', (req,res)=>{
+    Routes.addRecipeRoute(req,res);
+})
 
 let server = app.listen(port, () =>{
     console.log("Servidor rodando em http://localhost/");

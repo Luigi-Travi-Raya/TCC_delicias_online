@@ -55,6 +55,7 @@ const tb_receitas = database.define('tb_receitas',{
         allowNull: false,
     }
 })
+
 tb_receitas.hasMany(tb_denuncias)
 tb_receitas.hasMany(tb_likes)
 tb_receitas.hasMany(tb_comentarios)

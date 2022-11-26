@@ -1,16 +1,17 @@
 include includes/layout/template.pug
 body 
     include includes/layout/header.pug
-    .container.p-5.mt-5.grid(class="lg:grid-cols-3 sm:grid-cols-5")
-        -for(i=0;i<10;i++)
-            .max-w-sm.bg-white.rounded-lg.border.border-gray-200.shadow-md.p-5
-                img.rounded-t-lg(src='/images/logo.png' alt='Sunset in the mountains')
-                .p-5
-                a(href='#')
-                    h5.mb-2.text-2xl.font-bold.tracking-tight.text-gray-900(class='dark:text-white') Hamburguer Delicioso
-                p.mb-3.font-normal.text-gray-700(class='dark:text-gray-400')
-                    | Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-                a.inline-flex.items-center.py-2.px-3.text-sm.font-medium.text-center.text-white.bg-blue-700.rounded-lg(href='#' class='hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800')
-                    | Read more
-                    svg.ml-2.-mr-1.w-4.h-4(aria-hidden='true' fill='currentColor' viewbox='0 0 20 20' xmlns='http://www.w3.org/2000/svg')
-                        path(fill-rule='evenodd' d='M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z' clip-rule='evenodd')
+    .flex.justify-center
+        .container.index-container.p-5.mt-5.grid.m-5.gap-5(class="grid-cols-4")
+            -for(i=0;i<10;i++)
+                .w-80.card-body.mt-5
+                    img.rounded-t-lg(src='/img/logo.png' alt='Sunset in the mountains')
+                    .p-5
+                    a(href='#')
+                        h5.mb-2.text-2xl.tracking-tight.text-gray-900.card-title HAMBURGUER DELICIOSO
+                    p.mb-3.card-desc
+                        | Descrição Descrição Descrição Descrição Descrição Descrição Descrição Descrição Descrição Descrição Descrição Descrição
+                    .container.p-5.inline-flex.justify-between.card-btns
+                        p Salvar 
+                        p Postado por 
+                            a.card-link Nome usuario 
