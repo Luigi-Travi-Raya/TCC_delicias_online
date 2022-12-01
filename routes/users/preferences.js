@@ -55,8 +55,15 @@ const Edit = {
                                 email_usuario: fields.email,
                                 nome_foto_usuario: imgName
                             },{where:{id_usuario: req.session.userId}} 
-                            )
-                        res.redirect('/');        
+                            ).then(()=>{
+                                tb_usuarios.findAll({where:{email_usuario:fields.email}}).then(result=>{
+                                     req.session.userId = result[0]["id_usuario"];         
+                                     req.session.username = fields.name
+                                     req.session.isLogged = true;
+                                     return res.redirect('/');
+                                 })
+                             })
+
                     })
                 })
         })

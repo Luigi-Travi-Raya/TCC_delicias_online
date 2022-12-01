@@ -233,3 +233,10 @@ label{
     color:#867BFF;
     cursor: pointer;
 }
+
+/* !--------------------------------ADD RECIPE--------------------------------------- */
+
+.input-addfile{
+    height: 20vh;
+    border-style:dashed;
+}
