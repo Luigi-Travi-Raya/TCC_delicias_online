@@ -6,57 +6,60 @@ body
             p.title Nova Receita
                 .form.col-span-4.p-5
                     form.form-preferences.pt-5.self-center(action="/recipe/add", method="post" enctype="multipart/form-data")
-                        .container.flex-col
-                        
-                            .input-container.flex(class="w-1")
-                                label(for="recipe_name") 
-                                    | Nome:
-                                input(class="w-1/2" type="text", name="recipe_name")
+                        .container.flex-row.flex.gap-32
+                            .container.flex-col.flex
+                                .input-container
+                                    label(for="recipe_name") 
+                                        | Nome:
+                                    input.input-addRecipe(class="w-full" type="text", name="recipe_name")
+                                .input-container
+                                    label(for="type") 
+                                        | Categoria 
+                                    input.input-addRecipe(class="w-full" type="text", name="type")
 
-                            .input-container.flex
-                                label(for="imgs")
-                                    | Fotos da receita
-                                .justify-start.block.mb-5
-                                    label.input-form.input-addfile.mt-5.block.text-sm.cursor-pointer.flex.justify-center(for="img") 
-                                        p.p-3 Escolha uma foto
-                                    input.w-full(type="file" id="img" name="img" style="display:none" onchange="")
-                                    -if (erro == 'file_not_valid')
-                                       p.mt-2.text-base.text-red-600 Arquivo não é válido
+                                .input-container.flex.justify-between
+                                    .e
+                                        label(for="portions") 
+                                            | Porções: 
+                                            br
+                                        input.input-addRecipe(type="number", name="portions")
+                                    .e
+                                        label(for="time")
+                                            | Tempo: 
+                                            br
+                                        input.input-addRecipe( type="text", name="time")
 
-                            .input-container.flex
-                                label(for="type") 
-                                    | Categoria
-                                input(class="w-1/2" type="text", name="type")
+                                .input-container
+                                    label(for="recipe_diff")
+                                        | Dificuldade
+                                    input.input-addRecipe(class="w-full" type="text", name="recipe_diff")
 
-                            .input-container.flex
-                                label(for="portions") 
-                                    | Porções
-                                input(class="w-1/2" type="text", name="portions")
-                                label(for="time")
-                                    | Tempo
-                                input(class="w-1/2" type="text", name="time")
+                                .input-container
+                                    label(for="ingredients")
+                                        | Ingredientes
+                                    textarea.input-addRecipe(class="w-full" type="text", name="ingredients" cols="10", rows="5")
+                            .container.flex-col.content-around
+                                .input-container
+                                    label(for="imgs")
+                                        | Fotos da receita
+                                    .justify-start.block.mb-5
+                                        label.input-form.input-addfile.mt-5.block.text-sm.cursor-pointer.flex.justify-center(for="img") 
+                                            p.p-3 Escolha uma foto
+                                        input.w-full(type="file" id="img" name="img" style="display:none" onchange="")
+                                        -if (erro == 'file_not_valid')
+                                            p.mt-2.text-base.text-red-600 Arquivo não é válido 
 
-                            .input-container.flex
-                                label(for="recipe_diff")
-                                    | Dificuldade
-                                input(class="w-1/2" type="text", name="recipe_diff")
-
-                            .input-container.flex
-                                label(for="ingredients")
-                                    | Ingredientes
-                                input(class="w-1/2" type="text", name="ingredients")
-                            
-                            .input-container.flex
-                                label(for="desc")
-                                    | Descrição
-                                    br 
-                                textarea(class="w-1/2" name="desc", cols="10", rows="5") 
-                            .input-container
-                                label(for="steps")
-                                    | Modo de preparo 
-                                    br
-                                textarea(class="w-1/2" name="steps", cols="10", rows="5") 
-                            .input-container
-                                label(for="submit_btn") 
-                                input(type="submit", name="submit_btn") 
+                                .input-container
+                                    label(for="desc")
+                                        | Descrição
+                                        br 
+                                    textarea.input-addRecipe(class="w-full" name="desc", cols="10", rows="5") 
+                                .input-container
+                                    label(for="steps")
+                                        | Modo de preparo 
+                                        br
+                                    textarea.input-addRecipe(class="w-full" name="steps", cols="10", rows="5") 
+                                .input-container
+                                    label(for="submit_btn") 
+                                    input.input-addRecipe(type="submit", name="submit_btn") 
                                     

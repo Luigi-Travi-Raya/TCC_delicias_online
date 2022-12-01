@@ -236,7 +236,14 @@ label{
 
 /* !--------------------------------ADD RECIPE--------------------------------------- */
 
+.input-container{
+    margin-bottom: 5%;
+}
 .input-addfile{
     height: 20vh;
     border-style:dashed;
+}
+.input-addRecipe{
+    border-radius: 5px;
+    border-color:#900C3E;
 }
