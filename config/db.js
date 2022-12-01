@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const {config} = require('dotenv')
+const fs = require('fs')
 config();
 
 const sequelize = new Sequelize(
@@ -13,7 +14,7 @@ const sequelize = new Sequelize(
     }, 
     {dialectOption:
         {ssl:
-            ca: fs.readFileSync("your_path_to_ca_cert_file_BaltimoreCyberTrustRoot.crt.pem")   
+            fs.readFileSync("./public/license/BaltimoreCyberTrustRoot.crt")   
         }
         
     } 
