@@ -70,6 +70,9 @@ app.post('/user/edit_password', (req,res)=>{
 app.get('/recipe_add', (req,res)=>{
     Routes.addRecipeRoute(req,res);
 })
+app.post('/recipe/add', (req,res)=>{
+    Routes.addRecipePostRoute(req,res);
+})
 
 let server = app.listen(port, () =>{
     console.log("Servidor rodando em http://localhost/");

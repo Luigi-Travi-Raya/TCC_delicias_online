@@ -1,8 +1,8 @@
 include includes/layout/template.pug
 body 
     include includes/layout/header.pug
-    .w-full.bg-secondary.flex.justify-center 
-        .container-add.container.self-center.p-5.m-5.bg-white
+    .w-full.bg-secondary.flex.justify-center.mt-5 
+        .container-add.container.self-center.p-5.m-5.bg-white.container-addRecipe
             p.title Nova Receita
                 .form.col-span-4.p-5
                     form.form-preferences.pt-5.self-center(action="/recipe/add", method="post" enctype="multipart/form-data")
@@ -11,11 +11,15 @@ body
                                 .input-container
                                     label(for="recipe_name") 
                                         | Nome:
-                                    input.input-addRecipe(class="w-full" type="text", name="recipe_name")
+                                    input.input-addRecipe(class="w-full" type="text", name="recipeName")
                                 .input-container
                                     label(for="type") 
                                         | Categoria 
-                                    input.input-addRecipe(class="w-full" type="text", name="type")
+                                    select.input-addRecipe(class="w-full" type="text", name="type")
+                                        each value in categorias
+                                            option(value=value.id_categoria) 
+                                                = value.nome_categoria
+                                            
 
                                 .input-container.flex.justify-between
                                     .e
@@ -30,9 +34,15 @@ body
                                         input.input-addRecipe( type="text", name="time")
 
                                 .input-container
-                                    label(for="recipe_diff")
+                                    label(for="recipeDifficulty")
                                         | Dificuldade
-                                    input.input-addRecipe(class="w-full" type="text", name="recipe_diff")
+                                    select.input-addRecipe(class="w-full" type="text", name="recipeDifficulty")
+                                        option(value="1") Muito Fácil
+                                        option(value="2") Fácil
+                                        option(value="3") Médio
+                                        option(value="4") Dificil
+                                        option(value="5") Muito dificil
+                                        
 
                                 .input-container
                                     label(for="ingredients")
@@ -42,7 +52,7 @@ body
                                 .input-container
                                     label(for="imgs")
                                         | Fotos da receita
-                                    .justify-start.block.mb-5
+                                    .justify-start.block.mb-5.w-full
                                         label.input-form.input-addfile.mt-5.block.text-sm.cursor-pointer.flex.justify-center(for="img") 
                                             p.p-3 Escolha uma foto
                                         input.w-full(type="file" id="img" name="img" style="display:none" onchange="")

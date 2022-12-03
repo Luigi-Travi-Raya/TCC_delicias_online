@@ -38,6 +38,9 @@ const Routes = {
 
     addRecipeRoute:(req,res)=>{
         addRecipe.route(req,res);
+    },
+    addRecipePostRoute:(req,res)=>{
+        addRecipe.post(req,res);
     }
 }
 

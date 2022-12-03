@@ -3,6 +3,7 @@ const Sequelize = require('sequelize');
 const tb_denuncias = require('./tb_denuncias');
 const tb_comentarios = require('./tb_comentarios');
 const tb_likes = require('./tb_likes');
+const { STRING } = require('sequelize');
 
 const tb_receitas = database.define('tb_receitas',{
     id_receita: {
@@ -53,6 +54,10 @@ const tb_receitas = database.define('tb_receitas',{
     preparo_receita:{
         type: Sequelize.STRING,
         allowNull: false,
+    },
+    descricao_receita:{
+        type: Sequelize.STRING,
+        allowNull: false
     }
 })
 
