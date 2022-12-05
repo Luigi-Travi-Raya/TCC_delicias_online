@@ -17,6 +17,7 @@
     "mysql2": "^2.3.3",
     "pug": "^3.0.2",
     "sequelize": "^6.21.4",
+    "sqlite3": "^5.1.2",
     "tedious": "^15.1.2"
   },
   "devDependencies": {

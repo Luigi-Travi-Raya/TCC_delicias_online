@@ -1,11 +1,12 @@
 const database = require('../config/db');
 const Sequelize = require('sequelize');
+const sequelize = new Sequelize('sqlite::memory:');
 const tb_receitas = require('./tb_receitas');
 const tb_comentarios = require('./tb_comentarios');
 const tb_denuncias = require('./tb_denuncias');
 const tb_likes = require('./tb_likes');
 
-const tb_usuarios = database.define('tb_usuarios',{
+const tb_usuarios = sequelize.define('tb_usuarios',{
     id_usuario: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -30,6 +31,7 @@ const tb_usuarios = database.define('tb_usuarios',{
         allowNull: true
     }
 })
+
 tb_usuarios.hasMany(tb_receitas);
 tb_usuarios.hasMany(tb_comentarios);
 tb_usuarios.hasMany(tb_denuncias);

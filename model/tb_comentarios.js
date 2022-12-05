@@ -1,9 +1,11 @@
 const database = require('../config/db');
 const Sequelize = require('sequelize');
+const sequelize = new Sequelize('sqlite::memory:');
+
 const tb_categorias = require('./tb_categorias');
 const tb_receitas = require('./tb_receitas');
 
-const tb_comentarios = database.define('tb_comentarios',{
+const tb_comentarios = sequelize.define('tb_comentarios',{
     id_comentario: {
         type: Sequelize.INTEGER,
         autoIncrement: true,

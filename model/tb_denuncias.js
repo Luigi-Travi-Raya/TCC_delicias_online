@@ -1,7 +1,9 @@
 const database = require('../config/db');
 const Sequelize = require('sequelize');
+const sequelize = new Sequelize('sqlite::memory:');
 
-const tb_denuncias = database.define('tb_denuncias',{
+
+const tb_denuncias = sequelize.define('tb_denuncias',{
     id_denuncia: {
         type: Sequelize.INTEGER,
         autoIncrement: true,

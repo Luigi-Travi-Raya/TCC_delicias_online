@@ -10,7 +10,7 @@ const Tables = {
             const tb_comentarios = require('./model/tb_comentarios');
         
             try {
-                await database.sync();
+                await database.authenticate();
                 console.log("SUCESSO!!");
         
            } catch (error) {

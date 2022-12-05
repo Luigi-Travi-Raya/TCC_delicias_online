@@ -4,6 +4,7 @@ body
     .flex.justify-center
         .container.index-container.p-5.mt-5.grid.m-5.gap-5(class="grid-cols-4")
             each recipe in recipes
+                = recipes
                 .w-80.card-body.mt-5
                     img.rounded-t-lg(src=`img/${recipe["nome_fotos_receita"]}` alt='Sunset in the mountains')
                     .p-5
