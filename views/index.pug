@@ -4,16 +4,17 @@ body
     .flex.justify-center
         .container.index-container.p-5.mt-5.grid.m-5.gap-5(class="grid-cols-4")
             each recipe in recipes
-                .w-80.card-body.mt-5
-                    img.rounded-t-lg(src=`img/${recipe["nome_fotos_receita"]}`)
-                    .p-5
+                .w-80.card-body.mt-5.flex.flex-wrap
+                    img.rounded-t-lg.h-64.w-full(src=`img/${recipe["nome_fotos_receita"]}`)
                     a(href='#')
-                        h5.mb-2.text-2xl.tracking-tight.text-gray-900.card-title 
+                        h5.mb-2.text-2xl.tracking-tight.text-gray-900.card-title.m-4
                             = recipe["nome_receita"]
-                    p.mb-3.card-desc
+                    p.mb-3.card-desc.break-word.w-full.max-h-12.text-ellipsis.overflow-hidden
                         = recipe["descricao_receita"]
-                    .container.p-5.inline-flex.justify-between.card-btns
-                        p Salvar 
-                        p Postado por 
+                    .container.p-5.inline-flex.justify-between.card-btns.self-end.mt-auto
+                        a.p-2.rounded-md.like-btn( style="cursor: pointer")
+                            i.like-btn(class="fa-regular fa-heart")
+                            
+                        p.self-center Postado por 
                             a.card-link 
                                 = recipe["nome_autor_usuario"] 

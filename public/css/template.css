@@ -214,7 +214,6 @@ label{
 .card-title{
     color: #900C3E;
     font-size: 25px;
-    margin-left: 15px;
     margin-right: 15px;
     font-weight: bold;
 }
@@ -233,7 +232,12 @@ label{
     color:#867BFF;
     cursor: pointer;
 }
+.like-btn{
+    color:#900C3E;
+    font-size: 35px;
 
+
+}
 /* !--------------------------------ADD RECIPE--------------------------------------- */
 
 .container-addRecipe{
