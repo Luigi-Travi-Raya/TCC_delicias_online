@@ -3,6 +3,7 @@ const register = require("./users/register.js");
 const login = require("./users/login.js");
 const preferences = require("./users/preferences.js");
 const addRecipe = require("./recipes/addRecipe.js");
+const like = require("./recipes/like.js")
 
 const Routes = {
     indexRoute:(req,res)=>{
@@ -41,7 +42,13 @@ const Routes = {
     },
     addRecipePostRoute:(req,res)=>{
         addRecipe.post(req,res);
+    },
+
+    likeRecipePost:(req,res)=>{
+        like.like(req,res)
     }
+
+
 }
 
 module.exports = Routes;

@@ -1,6 +1,7 @@
 include includes/layout/template.pug
 body 
     include includes/layout/header.pug
+    script( defer src="scripts/likeAjax.js") 
     .flex.justify-center
         .container.index-container.p-5.mt-5.grid.m-5.gap-5(class="grid-cols-4")
             each recipe in recipes
@@ -12,9 +13,15 @@ body
                     p.mb-3.card-desc.break-word.w-full.max-h-12.text-ellipsis.overflow-hidden
                         = recipe["descricao_receita"]
                     .container.p-5.inline-flex.justify-between.card-btns.self-end.mt-auto
-                        a.p-2.rounded-md.like-btn( style="cursor: pointer")
-                            i.like-btn(class="fa-regular fa-heart")
-                            
+                        - if(isLogged)
+                            - if(recipe["likedByUser"])
+                                a.p-2.rounded-md.like-btn( style="cursor: pointer" id="dislikeBtn" value=`${recipe["id_receita"]}`)
+                                    i.like-btn(class="fa-solid fa-heart")
+                            - else
+                                a.p-2.rounded-md.like-btn( style="cursor: pointer" id=`likeBtn${recipe["id_receita"]}` onclick=`teste(${recipe["id_receita"]})`)
+                                    i.like-btn(class="fa-regular fa-heart")
+                        
+
                         p.self-center Postado por 
                             a.card-link 
                                 = recipe["nome_autor_usuario"] 

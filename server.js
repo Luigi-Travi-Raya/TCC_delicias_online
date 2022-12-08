@@ -74,6 +74,11 @@ app.post('/recipe/add', (req,res)=>{
     Routes.addRecipePostRoute(req,res);
 })
 
+app.post('/like',(req, res)=>{
+    Routes.likeRecipePost(req, res)
+})
+
+
 let server = app.listen(port, () =>{
     console.log("Servidor rodando em http://localhost/");
 });
