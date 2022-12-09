@@ -26,17 +26,16 @@ async function getRecipes(isLogged,userId){
 
         if(isLogged){
             resultQueryLikes = await tb_likes.findAll({where:{id_usuario: userId}})
-            for(i = 0; i<resultQueryLikes.length; i++){
-                await tb_receitas.findAll({where:{id_receita: resultQueryLikes[i]["id_receita"]}}).then(recipeResult=>{
-                    console.log(`comparing: ${recipeResult[0]['id_receita']} with ${recipe[i]["id_receita"]} `)
-                    if(recipeResult[0]['id_receita'] == recipe[i]["id_receita"])
-                        recipe[i]["likedByUser"] = true;
-                })
+            for(i=0;i<resultQueryLikes.length;i++){
+                for(j=0;j<recipe.length;j++){
+                    if(recipe[j]["id_receita"] == resultQueryLikes[i]["id_receita"]){
+                        recipe[j]["likedByUser"] = true;
+                        
+                    }
+                }
             }
         }
-
         return recipe
-    
     }catch(err){
         console.log(err)
     }

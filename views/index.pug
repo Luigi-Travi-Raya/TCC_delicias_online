@@ -15,11 +15,11 @@ body
                     .container.p-5.inline-flex.justify-between.card-btns.self-end.mt-auto
                         - if(isLogged)
                             - if(recipe["likedByUser"])
-                                a.p-2.rounded-md.like-btn( style="cursor: pointer" id="dislikeBtn" value=`${recipe["id_receita"]}`)
-                                    i.like-btn(class="fa-solid fa-heart")
+                                a.p-2.rounded-md.like-btn( style="cursor: pointer" id=`likeBtn${recipe["id_receita"]}` onclick=`dislikePostRequest(${recipe["id_receita"]})`)
+                                    i.like-btn(class="fa-solid fa-heart" id=`likeIcon${recipe["id_receita"]}` style="color:#900C3E")
                             - else
-                                a.p-2.rounded-md.like-btn( style="cursor: pointer" id=`likeBtn${recipe["id_receita"]}` onclick=`teste(${recipe["id_receita"]})`)
-                                    i.like-btn(class="fa-regular fa-heart")
+                                a.p-2.rounded-md.like-btn( style="cursor: pointer" id=`likeBtn${recipe["id_receita"]}` onclick=`likePostRequest(${recipe["id_receita"]})`)
+                                    i.like-btn(class="fa-solid fa-heart" id=`likeIcon${recipe["id_receita"]}` style="color:#878787")
                         
 
                         p.self-center Postado por 

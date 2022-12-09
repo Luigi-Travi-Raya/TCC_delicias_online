@@ -3,7 +3,8 @@ const register = require("./users/register.js");
 const login = require("./users/login.js");
 const preferences = require("./users/preferences.js");
 const addRecipe = require("./recipes/addRecipe.js");
-const like = require("./recipes/like.js")
+const like = require("./recipes/like.js");
+const dislike = require("./recipes/dislike.js");
 
 const Routes = {
     indexRoute:(req,res)=>{
@@ -46,7 +47,11 @@ const Routes = {
 
     likeRecipePost:(req,res)=>{
         like.like(req,res)
+    },
+    dislikeRecipePost:(req,res)=>{
+        dislike.dislike(req,res)
     }
+
 
 
 }

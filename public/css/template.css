@@ -233,10 +233,14 @@ label{
     cursor: pointer;
 }
 .like-btn{
-    color:#900C3E;
     font-size: 35px;
-
-
+    transition: 0.3s;
+    padding: 1px
+}
+.like-btn:hover{
+    padding: 0px;
+    transition: 0.3s;
+    font-size: 39px;
 }
 /* !--------------------------------ADD RECIPE--------------------------------------- */
 

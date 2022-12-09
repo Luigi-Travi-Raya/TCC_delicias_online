@@ -1,13 +1,12 @@
 const formidable = require('formidable');
 const tb_likes = require('../../model/tb_likes');
 
-const Like = {
-    like:(req,res)=>{
+const Dislike = {
+    dislike:(req,res)=>{
         let form = new formidable.IncomingForm();
         form.parse(req, (err1,fields,files)=>{
-            tb_likes.create({
-                id_receita: fields.params.recipeId,
-                id_usuario: req.session.userId
+            tb_likes.destroy({
+                where:{id_receita: fields.params.recipeId}
             }).then(()=>{
                 res.end()
             }).catch(err=>{
@@ -17,4 +16,4 @@ const Like = {
     }
 }
 
-module.exports = Like
+module.exports = Dislike
