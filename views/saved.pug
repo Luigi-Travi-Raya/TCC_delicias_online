@@ -1,0 +1,25 @@
+include includes/layout/template.pug
+body 
+    include includes/layout/header.pug
+    script( defer src="scripts/saveDislike.js") 
+    .w-full.bg-secondary.flex.justify-center 
+        .container-preferences.container.self-center.p-5.m-5.bg-white
+            p.title Receitas Salvas
+            .w-full.p-5.justify-items-center(class="grid grid-cols-3")  
+                each recipe in recipes
+                    if(recipe["likedByUser"])
+                        .w-96.card-body.mt-5.mb-5.flex.flex-wrap(id=`card${recipe["id_receita"]}`)
+                            img.rounded-t-lg.h-64.w-full(src=`img/${recipe["nome_fotos_receita"]}`)
+                            a(href='#')
+                                h5.mb-2.text-2xl.tracking-tight.text-gray-900.card-title.m-4
+                                    = recipe["nome_receita"]
+                            p.mb-3.card-desc.break-word.w-full.max-h-12.text-ellipsis.overflow-hidden
+                                = recipe["descricao_receita"]
+                            .container.p-5.inline-flex.justify-between.card-btns.self-end.mt-auto
+                                a.p-2.rounded-md.remove-saved-button( style="cursor: pointer" id=`likeBtn${recipe["id_receita"]}` onclick=`dislikePostRequest(${recipe["id_receita"]})`)
+                                    p.remove-saved-text Remover dos salvos
+                                    //- i.like-btn(class="fa-solid fa-heart" id=`likeIcon${recipe["id_receita"]}` style="color:#900C3E")
+
+                                p.self-center Postado por 
+                                    a.card-link 
+                                        = recipe["nome_autor_usuario"] 

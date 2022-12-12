@@ -17,7 +17,12 @@ const Edit = {
             else{
                 tb_usuarios.findAll({ where:{id_usuario: req.session.userId}}).then(result=>{
                     req.session.userEmail = result[0]["email_usuario"];
-                    res.render('preferencia', {userName:req.session.username, userEmail:req.session.userEmail, isLogged:req.session.isLogged, editPassword: false, erro: req.session.errEdit});
+                    res.render('preferencia', {
+                        userName:req.session.username,
+                        userEmail:req.session.userEmail, 
+                        isLogged:req.session.isLogged, 
+                        editPassword: false, 
+                        erro: req.session.errEdit});
                     console.log("Acessando edita.pug")
                 })
             }

@@ -81,6 +81,14 @@ app.post('/dislike',(req,res)=>{
     Routes.dislikeRecipePost(req,res)
 })
 
+app.get('/saved', (req,res)=>{
+    Routes.savedRoute(req,res)
+})
+
+app.get('/profile/:id', (req,res)=>{
+    Routes.profileRoute(req,res);
+})
+
 let server = app.listen(port, () =>{
     console.log("Servidor rodando em http://localhost/");
 });

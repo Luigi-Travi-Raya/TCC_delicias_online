@@ -5,6 +5,8 @@ const preferences = require("./users/preferences.js");
 const addRecipe = require("./recipes/addRecipe.js");
 const like = require("./recipes/like.js");
 const dislike = require("./recipes/dislike.js");
+const saved = require("./recipes/saved.js")
+const profile = require("./users/profile.js")
 
 const Routes = {
     indexRoute:(req,res)=>{
@@ -50,9 +52,15 @@ const Routes = {
     },
     dislikeRecipePost:(req,res)=>{
         dislike.dislike(req,res)
+    },
+
+    savedRoute: (req,res)=>{
+        saved.route(req,res)
+    },
+
+    profileRoute: (req,res)=>{
+    profile.route(req,res);
     }
-
-
 
 }
 

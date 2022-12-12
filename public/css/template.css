@@ -13,6 +13,10 @@ body{
     background: rgb(95,0,0);
     background: linear-gradient(180deg, rgba(95,0,0,1) 0%, rgba(199,0,59,1) 100%);
 }
+.bg-fade-profile{
+    background: #900C3E;
+    background: linear-gradient(180deg,#900C3E 0%, #FF5834 100%);
+}
 .bg-secondary{
     background-color: #F5F5F5;
 }
@@ -258,4 +262,21 @@ label{
     border-radius: 5px;
     border-color: #900C3E;
     min-height: 3.5rem;
+}
+
+/*! ------------------------------------------------- SAVED RECIPES ------------------------------------------------------------ */
+
+.remove-saved-text{
+    font-size: 15px;
+}
+
+.remove-saved-button{
+    background-color: white;
+    color: red;
+    transition: 0.3s;
+}
+.remove-saved-button:hover{
+    background-color: red;
+    color: white;
+    transition: 0.3s;
 }
