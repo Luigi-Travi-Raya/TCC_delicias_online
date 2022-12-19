@@ -1,0 +1,29 @@
+include includes/layout/template.pug
+body 
+    include includes/layout/header.pug
+    script( defer src="scripts/indexLike.js") 
+    .flex.justify-center.mt-5  
+        .container.border.flex.flex-col 
+            .flex.justify-between.w-full.pl-5.pr-5
+                .recipe-title  
+                    = recipe['nome_receita']
+                .recipe-title  
+                    | Curtir
+            .flex.justify-between.w-full.bg-black.text-white  
+                | Imagem
+            .flex.justify-between.w-full.border.mt-5
+                .recipe-desc 
+                    | Descrição
+                .recipe-info.bg-fade 
+                    | Informações adcionais da receita
+            .flex.justify-between.w-full.bg-black.text-white.mt-3.h-48
+                | Toda descrição  
+            .flex.justify-between.w-full.border.mt-5
+                .flex-row.flex
+                    .recipe-ingredients     
+                        | Ingredientes 
+                    .recipe-steps 
+                        | Etaps
+            
+
+    include includes/layout/footer.pug

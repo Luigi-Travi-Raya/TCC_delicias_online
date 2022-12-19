@@ -6,7 +6,8 @@ const addRecipe = require("./recipes/addRecipe.js");
 const like = require("./recipes/like.js");
 const dislike = require("./recipes/dislike.js");
 const saved = require("./recipes/saved.js")
-const profile = require("./users/profile.js")
+const profile = require("./users/profile.js");
+const viewRecipe = require("./recipes/viewRecipe.js");
 
 const Routes = {
     indexRoute:(req,res)=>{
@@ -59,9 +60,12 @@ const Routes = {
     },
 
     profileRoute: (req,res)=>{
-    profile.route(req,res);
-    }
+        profile.route(req,res);
+    },
 
+    recipeRoute: (req,res)=>{
+        viewRecipe.route(req,res);
+    }
 }
 
 module.exports = Routes;

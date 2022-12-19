@@ -85,8 +85,12 @@ app.get('/saved', (req,res)=>{
     Routes.savedRoute(req,res)
 })
 
-app.get('/profile/:id', (req,res)=>{
+app.get('/profile-:id', (req,res)=>{
     Routes.profileRoute(req,res);
+})
+
+app.get('/recipe-:id', (req,res)=>{
+    Routes.recipeRoute(req,res);
 })
 
 let server = app.listen(port, () =>{

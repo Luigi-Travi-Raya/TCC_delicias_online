@@ -7,7 +7,7 @@ body
             each recipe in recipes
                 .w-80.card-body.mt-5.flex.flex-wrap
                     img.rounded-t-lg.h-64.w-full(src=`img/${recipe["nome_fotos_receita"]}`)
-                    a(href='#')
+                    a(href=`/recipe-${recipe["id_receita"]}`)
                         h5.mb-2.text-2xl.tracking-tight.text-gray-900.card-title.m-4
                             = recipe["nome_receita"]
                     p.mb-3.card-desc.break-word.w-full.max-h-12.text-ellipsis.overflow-hidden
@@ -21,5 +21,5 @@ body
                                 a.p-2.rounded-md.like-btn( style="cursor: pointer" id=`likeBtn${recipe["id_receita"]}` onclick=`likePostRequest(${recipe["id_receita"]})`)
                                     i.like-btn(class="fa-solid fa-heart" id=`likeIcon${recipe["id_receita"]}` style="color:#878787")
                         p.self-center Postado por 
-                            a.card-link 
+                            a.card-link(href=`/profile-${recipe["id_autor_usuario"]}`) 
                                 = recipe["nome_autor_usuario"] 
