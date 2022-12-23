@@ -1,8 +1,8 @@
-include template.pug 
+head    
+    include template.pug 
 body   
-    .bg-primary.flex.h-auto.justify-center
-        .container.flex.justify-between
-            .div.flex.p-5(class="w-1/6"  )
+        .flex.justify-between.container-header.bg-primary.h-auto
+            .div.flex.p-1.pl-5
                 img.logo(src='img/logo.png' style="cursor: pointer" onclick="window.location = '/';")
             
             .div.flex.justify-items-center.self-center
@@ -10,10 +10,10 @@ body
                     input.rounded-l-full.p-2.input.input-search(type="text" name="search")
                     input.rounded-full.p-1.pl-5.pr-5.input-btn-search.text-white( type="button" value="Buscar")
             
-            .container-sm.flex.btns-container.m-5(class="w-1/6")
+            .container-sm.flex.btns-container.mb-5.mt-5
                 -if(!isLogged)
-                    input.self-center.rounded-full.input-btn-login.place-end(class="left-1/2" type="button" value="Login" onclick="window.location = '/login';")
-                    input.self-center.rounded-full.pl-5.pr-5.input-btn-registro(type="button" value="Registro" onclick="window.location = '/registro';")
+                    input.self-center.rounded-full.input-btn-login.place-end( type="button" value="Login" onclick="window.location = '/login';")
+                    input.self-center.rounded-full.pl-5.input-btn-registro(type="button" value="Registro" onclick="window.location = '/registro';")
                 -else
                     button#dropdownDefault.dropdown.self-center.rounded-full.place-end.rounded-lg.text-center.inline-flex.items-center(data-dropdown-toggle='dropdown'  type='button')
                         p #{userName}

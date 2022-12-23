@@ -22,10 +22,7 @@ body{
 .bg-secondary{
     background-color: #F5F5F5;
 }
-.btns-container{
-    margin-right: 4vw;
-    gap: 10px;
-}
+
 .input{
     outline: none;
 }
@@ -41,7 +38,11 @@ body{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 15px 0 rgba(0, 0, 0, 0.1);
 }
  /* !------------------------------HEADER------------------------------------------------- */
-.logo{
+.container-header{
+    width: 100%;
+    margin: 0
+}
+ .logo{
     max-height: 5rem;
 }
 .searchbar{
@@ -92,7 +93,6 @@ body{
     color: #900C3E;
     padding: 0.4rem;
     padding-inline: 3rem;
-    margin-right: 200px;
     border: solid 3px #F5F5F5;
     font-size: 22px;
     font-weight: 500;
@@ -106,9 +106,10 @@ body{
     transition: 0.2s;
 
 }
-.container-registro{
-    width: 35%;
-    max-height: 80%;
+
+.btns-container{
+    padding-right: 0.5rem;
+    gap: 10px;
 }
 .dropdown{
     color:white;
@@ -129,7 +130,7 @@ body{
 }
 .form-registro{
     height: 70%;
-    margin-top: 23%;
+    margin-top: 5%;
 }
 .input-btn{
     cursor: pointer;
@@ -140,6 +141,10 @@ body{
     font-weight: 300;
     transition: 0.2s;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 15px 0 rgba(0, 0, 0, 0.1);
+}
+.container-registro{
+    width: 35%;
+    max-height: 70%;
 }
 .input-btn-voltar{
     color:#900C3E;
