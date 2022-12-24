@@ -1,9 +1,9 @@
 include includes/layout/template.pug
 body 
     .w-full.flex.h-full
-        .flex.bg-fade.h-full.justify-center.m-0(class="w-3/4")
+        .flex.bg-fade.h-full.justify-center.m-0(class="w-1/2")
             img.flex.h-96.image.self-center(src='img/logo.png')
-        .bg-secondary.h-full.flexbox(class="container-registro")
+        .bg-secondary.h-full.flexbox(class="container-registro w-1/2")
             h1.title.text-center.w-full.mt-5 LOGIN 
             form.form-registro.pt-5.self-center(action="/user/logar", method="post")
                 .container-form-registro
@@ -22,4 +22,7 @@ body
                             a.w-full(href="/")  Voltar
                         .input-btn-submit.input-btn.text-center.place-content-center.flex.items-center
                             input.w-full(style="cursor: pointer" type="submit" value="Logar")
+                    .justify-center.flex  
+                        p.p-5(style="font-size:20px") Ainda não possui conta? Crie uma 
+                            a(href="/registro" style="color:#867BFF") aqui 
 

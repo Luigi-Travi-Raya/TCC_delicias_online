@@ -1,0 +1,36 @@
+include includes/layout/template.pug
+body
+    .w-full.flex.h-full
+        .flex.bg-fade.h-full.justify-center.m-0(class="w-1/2")
+            img.flex.h-96.image.self-center(src='img/logo.png')
+        .bg-secondary.h-full.flexbox(class="container-registro w-1/2")
+            h1.title.text-center.w-full.mt-3 REGISTRO 
+            form.form-registro.pt-3.self-center(action="/user/registrar", method="post")
+                .container-form-registro
+                    .justify-center.flex
+                        -if (erro =="missing_fields")
+                            p.error Preencha todos os campos
+                        -if (erro == 'user_exists')
+                            p.error Usuário já cadastrado 
+                    .justify-center.flex
+                        input.input-registro.m-5(type="text", name="name" placeholder=" Nome")
+                    .justify-center.flex
+                        -if (erro == 'email_exists')
+                                p.error Email já cadastrado
+                    .justify-center.flex
+                        input.input-registro.m-5(type="email", name="email" placeholder=" Email")
+                    .justify-center.flex
+                        -if (erro == 'passwords_not_matching')
+                            p.error Senhas precisam ser iguais   
+                    .justify-center.flex 
+                        input.input-registro.m-5(type="password", name="password" placeholder=" Senha")
+                    .justify-center.flex               
+                        input.input-registro.m-5(type="password", name="confirm_password" placeholder=" Confirmar Senha")
+                    .justify-center.flex.gap-7
+                        .input-btn-voltar.input-btn.text-center.place-content-center.flex.items-center
+                            a.w-full(href="/")  Voltar
+                        .input-btn-submit.input-btn.text-center.place-content-center.flex.items-center
+                            input.w-full(style="cursor: pointer" type="submit" value="Registrar")
+                    .justify-center.flex  
+                        p.pt-5(style="font-size:20px") Já possui conta? logue-se 
+                            a(href="/login" style="color:#867BFF") aqui 

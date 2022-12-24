@@ -1,61 +1,33 @@
+const tb_categorias = require('./model/tb_categorias.js')
 const tb_likes = require('./model/tb_likes.js')
 const tb_receitas = require('./model/tb_receitas.js')
 const Tables = require ('./tables.js')
 userId = 11
 
+tb_categorias.create({
+    nome_categoria:"Carnes"
+})
 
-async function sexo(){
-    let recipe =  await tb_receitas.findAll();
-    resultQueryLikes = await tb_likes.findAll({where:{id_usuario: userId}})
-    
-    for(i = 0; i<resultQueryLikes.length; i++){
-        console.log(resultQueryLikes[i]["id_receita"])
-        let recipeResult = await tb_receitas.findAll({where:{id_receita: resultQueryLikes[i]["id_receita"]}})
-        console.log(`recipes liked: ${recipe[i]["id_receita"]} `)
-        recipe[i]["likedByUser"] = true;
+tb_categorias.create({
+    nome_categoria:"Massas"
+})
 
-    }
+tb_categorias.create({
+    nome_categoria:"Pães"
+})
 
-    console.log(recipe)
-    return recipe
-}
+tb_categorias.create({
+    nome_categoria:"Vegano"
+})
 
-console.log(teste2())
+tb_categorias.create({
+    nome_categoria:"Low Carb"
+})
 
+tb_categorias.create({
+    nome_categoria:"Molhos"
+})
 
-async function teste2(){
-    let recipe =  await tb_receitas.findAll();
-    resultQueryLikes = await tb_likes.findAll({where:{id_usuario: userId}})
-
-    for(i=0;i<resultQueryLikes.length;i++){
-        for(j=0;j<recipe.length;j++){
-            console.log(`${recipe[j]["id_receita"]} with ${resultQueryLikes[i]["id_receita"]}`)
-            if(recipe[j]["id_receita"] == resultQueryLikes[i]["id_receita"]){
-                recipe[j]["likedByUser"] = true;
-                
-            }
-        }
-    }
-    console.log(recipe)
-    return recipe
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+tb_categorias.create({
+    nome_categoria:"Prato Asiático"
+})

@@ -6,18 +6,36 @@ body
         .container.border.flex.flex-col 
             .flex.justify-between.w-full.pl-5.pr-5
                 .recipe-title  
-                    = recipe['nome_receita']
+                    = recipe[0]["nome_receita"]
                 .recipe-title  
                     | Curtir
-            .flex.justify-between.w-full.bg-black.text-white  
-                | Imagem
+            .flex.justify-between.w-full.text-white  
+                img.object-cover.w-full(src=`/img/${recipe[0]["nome_fotos_receita"]}` style="height:400px ")
             .flex.justify-between.w-full.border.mt-5
                 .recipe-desc 
                     | Descrição
-                .recipe-info.bg-fade 
-                    | Informações adcionais da receita
+                .recipe-info.flex
+                    .recipe-info-block  
+                        = recipe[0]["qtd_porcoes_receita"]
+                    .recipe-info-block
+                        = recipe[0]["tempo_preparo_receita"]
+                    .recipe-info-block  
+                        case recipe[0]["dificuldade_receita"]
+                            when 1
+                                | Muito Fácil
+                            when 2
+                                | Fácil 
+                            when 3
+                                | Médio
+                            when 4
+                                | Difícil
+                            when 5
+                                | Muito Difícil
+
+                        = recipe[0]["qtd_porcoes_receitas"]
             .flex.justify-between.w-full.bg-black.text-white.mt-3.h-48
-                | Toda descrição  
+                = recipe[0]["descricao_receita"]
+                
             .flex.justify-between.w-full.border.mt-5
                 .flex-row.flex
                     .recipe-ingredients     

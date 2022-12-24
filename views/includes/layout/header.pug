@@ -15,9 +15,8 @@ body
                     input.self-center.rounded-full.input-btn-login.place-end( type="button" value="Login" onclick="window.location = '/login';")
                     input.self-center.rounded-full.pl-5.input-btn-registro(type="button" value="Registro" onclick="window.location = '/registro';")
                 -else
-                    button#dropdownDefault.dropdown.self-center.rounded-full.place-end.rounded-lg.text-center.inline-flex.items-center(data-dropdown-toggle='dropdown'  type='button')
+                    button#dropdownDefault.dropdown.self-center.rounded-full.place-end.rounded-lg.text-center.inline-flex.items-center.mr-2(data-dropdown-toggle='dropdown'  type='button')
                         p #{userName}
-                        
                         svg.ml-2.w-4.h-4(aria-hidden='true' fill='none' stroke='currentColor' viewbox='0 0 24 24' xmlns='http://www.w3.org/2000/svg')
                             path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7')
                     #dropdown.hidden.z-10.w-44.bg-white.rounded.divide-y.divide-gray-100.shadow(class='dark:bg-gray-700')
