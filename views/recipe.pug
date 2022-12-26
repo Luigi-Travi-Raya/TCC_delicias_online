@@ -37,11 +37,12 @@ body
                 = recipe[0]["descricao_receita"]
                 
             .flex.justify-between.w-full.border.mt-5
-                .flex-row.flex
-                    .recipe-ingredients     
-                        | Ingredientes 
-                    .recipe-steps 
-                        | Etaps
+                .recipe-ingredients.border(class="w-1/2")
+                    span.text-xl.justify-self-center Ingredientes 
+                    = recipe[0]["ingredientes_receita"] 
+                .recipe-steps.border(class="w-1/2")
+                    span.text-xl.justify-self-center Modo de Preparo
+                        = recipes[0]["preparo_receita"]
             
 
     include includes/layout/footer.pug
