@@ -29,6 +29,7 @@ body{
 .input-form{
     border-radius: 10px;
     width: 70%;
+    max-width: 600px;
     padding: 3px;
     font-size: 30px;
     font-weight: 200;
@@ -138,6 +139,7 @@ body{
     font-size: 22px;
     margin-top: 7%;
     width: 33%;
+    max-width: 280px;
     font-weight: 300;
     transition: 0.2s;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 15px 0 rgba(0, 0, 0, 0.1);
@@ -145,6 +147,7 @@ body{
 .container-registro{
     width: 35%;
     max-height: 70%;
+    max-width: 1000px;
 }
 .input-btn-voltar{
     color:#900C3E;
@@ -171,6 +174,7 @@ body{
 .input-registro{
     border-radius: 10px;
     width: 70%;
+    max-width: 600px;
     padding: 3px;
     font-size: 25px;
     font-weight: 200;
@@ -269,6 +273,14 @@ label{
     border-radius: 5px;
     border-color: #900C3E;
     min-height: 3.5rem;
+}
+.ingredient-cell{
+    border-radius: 999px;
+    width: min-content;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: 3px;
 }
 
 /*! ------------------------------------------------- SAVED RECIPES ------------------------------------------------------------ */

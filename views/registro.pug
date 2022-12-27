@@ -1,9 +1,9 @@
 include includes/layout/template.pug
 body
     .w-full.flex.h-full
-        .flex.bg-fade.h-full.justify-center.m-0(class="w-1/2")
+        .flex.bg-fade.h-full.justify-center.m-0(class="w-full")
             img.flex.h-96.image.self-center(src='img/logo.png')
-        .bg-secondary.h-full.flexbox(class="container-registro w-1/2")
+        .bg-secondary.h-full.flexbox(class="container-registro")
             h1.title.text-center.w-full.mt-3 REGISTRO 
             form.form-registro.pt-3.self-center(action="/user/registrar", method="post")
                 .container-form-registro

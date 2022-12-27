@@ -1,6 +1,8 @@
 include includes/layout/template.pug
 body 
     include includes/layout/header.pug
+    script( defer src="scripts/test.js") 
+
     .w-full.bg-secondary.flex.justify-center.mt-5 
         .container-add.container.self-center.p-5.m-5.bg-white.container-addRecipe
             p.title Nova Receita
@@ -47,7 +49,7 @@ body
                                 .input-container
                                     label(for="ingredients")
                                         | Ingredientes
-                                    textarea.input-addRecipe(class="w-full" type="text", name="ingredients" cols="10", rows="5")
+                                    textarea.input-addRecipe.flex.flex-wrap(class="w-full" type="text" name="ingredients" id="ingredients" onkeyup="test()" onclick="test2()")
                             .container.flex-col.content-around
                                 .input-container
                                     label(for="imgs")
@@ -71,5 +73,5 @@ body
                                     textarea.input-addRecipe(class="w-full" name="steps", cols="10", rows="5") 
                                 .input-container
                                     label(for="submit_btn") 
-                                    input.input-addRecipe(type="submit", name="submit_btn") 
+                                    input.input-addRecipe(type="submit", name="submit_btn" onclick="test2()") 
                                     
