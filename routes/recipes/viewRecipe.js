@@ -6,7 +6,8 @@ const viewRecipe = {
         tb_receitas.findAll({where:{id_receita:req.params.id}}).then(resultQuery=>{
             console.log(resultQuery)
             res.render("recipe.pug", {
-                recipe: resultQuery
+                recipe: resultQuery,
+                isLogged: req.session.isLogged
             })
 
         })

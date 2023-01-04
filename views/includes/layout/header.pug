@@ -1,10 +1,9 @@
 head    
     include template.pug 
 body   
-        .flex.justify-between.container-header.bg-primary.h-auto
+        .flex.justify-evenly.container-header.bg-primary.h-auto
             .div.flex.p-1.pl-5
                 img.logo(src='img/logo.png' style="cursor: pointer" onclick="window.location = '/';")
-            
             .div.flex.justify-items-center.self-center.ml-5
                 .bg-white.flex.rounded-full.searchbar(class="p-0.5")
                     input.rounded-l-full.p-2.input.input-search(type="text" name="search")

@@ -3,23 +3,29 @@ body
     include includes/layout/header.pug
     script( defer src="scripts/indexLike.js") 
     .flex.justify-center.mt-5  
-        .container.border.flex.flex-col 
+        .container.flex.flex-col.mt-5.rounded.container-recipe-view 
             .flex.justify-between.w-full.pl-5.pr-5
-                .recipe-title  
-                    = recipe[0]["nome_receita"]
-                .recipe-title  
-                    | Curtir
+                .recipe-title.self-center.m-3  
+                    = recipe[0]["nome_receita"].toUpperCase()
+                .recipe-title.m-3
+                    - if(isLogged)
+                        - if(recipe["likedByUser"])
+                            a.p-2.rounded-md.like-btn-recipe( style="cursor: pointer" id=`likeBtn${recipe["id_receita"]}` onclick=`dislikePostRequest(${recipe["id_receita"]})`)
+                                i.like-btn-recipe(class="fa-solid fa-heart" id=`likeIcon${recipe["id_receita"]}` style="color:#900C3E")
+                        - else
+                            a.p-2.rounded-md.like-btn-recipe( style="cursor: pointer" id=`likeBtn${recipe["id_receita"]}` onclick=`likePostRequest(${recipe["id_receita"]})`)
+                                i.like-btn-recipe(class="fa-solid fa-heart" id=`likeIcon${recipe["id_receita"]}` style="color:#878787")
             .flex.justify-between.w-full.text-white  
                 img.object-cover.w-full(src=`/img/${recipe[0]["nome_fotos_receita"]}` style="height:400px ")
-            .flex.justify-between.w-full.border.mt-5
-                .recipe-desc 
+            .flex.justify-between.w-full.mt-5
+                .recipe-subtitle.ml-5.self-end  
                     | Descrição
-                .recipe-info.flex
-                    .recipe-info-block  
+                .recipe-info.flex.mr-5 
+                    .recipe-info-block(style="border-radius: 6px 0px 0px 6px; border-right: #75002d solid 1px;")  
                         = recipe[0]["qtd_porcoes_receita"]
-                    .recipe-info-block
+                    .recipe-info-block(style="border-radius: 0; border-left: 0; border-right:0")
                         = recipe[0]["tempo_preparo_receita"]
-                    .recipe-info-block  
+                    .recipe-info-block(style="border-radius: 0px 6px 6px 0px; border-left: #75002d solid 1px;")  
                         case recipe[0]["dificuldade_receita"]
                             when 1
                                 | Muito Fácil
@@ -33,16 +39,25 @@ body
                                 | Muito Difícil
 
                         = recipe[0]["qtd_porcoes_receitas"]
-            .flex.justify-between.w-full.bg-black.text-white.mt-3.h-48
+            .flex.recipe-desc.w-full.mt-3.p-5.ml-5.break-all
                 = recipe[0]["descricao_receita"]
                 
-            .flex.justify-between.w-full.border.mt-5
-                .recipe-ingredients.border(class="w-1/2")
-                    span.text-xl.justify-self-center Ingredientes 
-                    = recipe[0]["ingredientes_receita"] 
-                .recipe-steps.border(class="w-1/2")
-                    span.text-xl.justify-self-center Modo de Preparo
-                        = recipes[0]["preparo_receita"]
+            .flex.justify-between.w-full.mt-5.p-5
+                .flex(class="w-1/2")
+                    .recipe-subtitle.flex.flex-col.w-full 
+                        span.self-center Ingredientes
+                        .recipe-ingredients.m-3.mt-5 
+                            ul 
+                                -
+                                    let ingredients = recipe[0]["ingredientes_receita"].split(" ")
+                                each ingredient in ingredients
+                                    li 
+                                        =   ingredient
+                .flex(class="w-1/2")
+                    .recipe-subtitle.flex.flex-col.w-full  
+                        span.self-center Modo de Preparo
+                        .recipe-ingredients.m-3.mt-5 
+                            = recipe[0]["preparo_receita"]
             
 
     include includes/layout/footer.pug
