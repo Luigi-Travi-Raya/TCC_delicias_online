@@ -340,10 +340,11 @@ label{
 }
 /* !-------------------------------- RECIpe VIEW------------------ */
 .container-recipe-view{
-    box-shadow: 0px 10px 50px hsl(0, 0%, 56%);
-    border-radius: 40px;
+    box-shadow: 0px 10px 20px hsl(0, 0%, 56%);
+    border-radius: 20px;
     width: 60%;
-
+    margin-bottom: 3%;
+    background-color: hsl(0, 0%, 99%);
 }
 .recipe-info-block{
     padding: 0.75rem;
@@ -375,4 +376,21 @@ label{
 }
 .recipe-ingredients{
     font-size: 20px;
+}
+.comment-profile-img{
+    width: 2.25rem;
+    height: 2.25rem;
+    background-color: #867BFF;
+}
+.container-publish-comment{
+    box-shadow: 0px 5px 4px hsl(0, 0%, 63%);
+    border-radius: 15px;
+    background-color: #dfdfdf;
+}
+.textarea-comment{
+    border: solid 1px hsl(0, 0%, 39%);
+    border-radius: 5px;
+    overflow: auto;
+    outline: none;
+    background-color: transparent;
 }
