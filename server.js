@@ -10,7 +10,8 @@ const session = require('express-session')
 const formidable = require('formidable');
 const pug = require('pug');
 const bcrypt = require('bcrypt');
-const {config} = require('dotenv')
+const {config} = require('dotenv');
+const { json } = require('express');
 
 config();
 
@@ -23,6 +24,7 @@ app.use(express.static('public'))
 // Define a template engine padrão para o Pug
 app.set('view engine','pug');
 
+app.use(json())
 
 // Inicia a session com uma chave aleatória
 app.use(session({
@@ -92,6 +94,13 @@ app.get('/profile-:id', (req,res)=>{
 app.get('/recipe-:id', (req,res)=>{
     Routes.recipeRoute(req,res);
 })
+
+app.post('/post_comment', (req,res)=>{
+    Routes.addComment(req,res);
+})
+
+
+
 
 let server = app.listen(port, () =>{
     console.log("Servidor rodando em http://localhost/");

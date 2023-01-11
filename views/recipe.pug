@@ -2,6 +2,8 @@ include includes/layout/template.pug
 body 
     include includes/layout/header.pug
     script( defer src="scripts/indexLike.js") 
+    script( defer src="scripts/test.js") 
+
     .flex.content-center.mt-5.flex-col.mb-5  
         .container.flex.flex-col.mt-5.rounded.container-recipe-view.self-center 
             .flex.justify-between.w-full.pl-5.pr-5
@@ -62,10 +64,15 @@ body
         .container.flex.flex-col.mt-5.rounded.container-recipe-view.self-center.p-5
             h1.recipe-title.w-full.text-center COMENTÁRIOS
             .container-comments.mt-5
-                | awoijdaoidj
-            .flex.container-publish-comment.mt-5.mb-3.flex-row.gap-2.p-5
-                div.comment-profile-img Foto de perfil
-                textarea.textarea-comment.w-full(name="comment") 
-                button(type="button" name="diwja" value="comentar")
-                    | Comentar 
+                ul
+                    each comment in comments
+                        li 
+                            = comment['nome_autor']
+                            = comment['texto_comentario']   
+            -if(isLogged)
+                .flex.container-publish-comment.mt-5.mb-3.flex-row.gap-2.p-5
+                    div.comment-profile-img Foto de perfil
+                    textarea.textarea-comment.w-full(name="comment" id="textarea-comment") 
+                    button.comment-btn.p-4(type="button" name="diwja" value="comentar" onclick=`test(${recipe[0]['id_receita']}, ${userId})`)
+                        | COMENTAR
     include includes/layout/footer.pug

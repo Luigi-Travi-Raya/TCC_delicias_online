@@ -1,7 +1,5 @@
 const database = require('../config/db');
 const Sequelize = require('sequelize');
-const tb_categorias = require('./tb_categorias');
-const tb_receitas = require('./tb_receitas');
 
 const tb_comentarios = database.define('tb_comentarios',{
     id_comentario: {
@@ -31,4 +29,5 @@ const tb_comentarios = database.define('tb_comentarios',{
         allowNull: false,
     }
 })
+
 module.exports = tb_comentarios;

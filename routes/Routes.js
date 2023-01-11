@@ -8,6 +8,7 @@ const dislike = require("./recipes/dislike.js");
 const saved = require("./recipes/saved.js")
 const profile = require("./users/profile.js");
 const viewRecipe = require("./recipes/viewRecipe.js");
+const addComment = require("./comments/addComment.js")
 
 const Routes = {
     indexRoute:(req,res)=>{
@@ -65,6 +66,10 @@ const Routes = {
 
     recipeRoute: (req,res)=>{
         viewRecipe.route(req,res);
+    },
+
+    addComment: (req,res)=>{
+        addComment.post(req,res)
     }
 }
 

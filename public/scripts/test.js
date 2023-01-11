@@ -1,17 +1,18 @@
-let ingredientTextArea = document.getElementById("ingredients")
 
-function test(){
-    ingredientTextArea = document.getElementById("ingredients")
-    console.log(ingredientTextArea.value.split('\n'))
-}
 
-function test2(){
-    values = ingredientTextArea.value.split('\n')
-    for(i=0;i<values.length;i++){
-        if(values[i] == "")
-            values[i] = null;
-        
-    }
-    console.log(values)
+function test(recipeId, userId){
+    let commentText = document.getElementById("textarea-comment").value
+    console.log(commentText)
+    axios.post("/post_comment",{
+        recipeId: recipeId,
+        userId: userId,
+        commentText: commentText
+    }).then(response=>{
+        document.getElementById("textarea-comment").value = ""
+        document.getElementById("textarea-comment").style = "border-color: green"
+        console.log(`comentario postado com sucesso! ${response}`)
+    }).catch(err=>{
+        console.log(err.response.data)
+    })
 }
 
