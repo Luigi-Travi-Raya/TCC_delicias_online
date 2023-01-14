@@ -1,6 +1,4 @@
-
-
-function test(recipeId, userId){
+function postComment(recipeId, userId){
     let commentText = document.getElementById("textarea-comment").value
     console.log(commentText)
     axios.post("/post_comment",{

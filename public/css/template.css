@@ -410,3 +410,14 @@ label{
     color: hsl(0, 0%, 83%);
     transition: 0.3s;
 }
+.comment-profile-img{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 999px;
+}
+.comment-user-name{
+    font-size: 23px;
+}
+.comment-box{
+    border-top: solid 1px black;
+}
