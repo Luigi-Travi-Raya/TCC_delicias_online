@@ -13,7 +13,7 @@ function likePostRequest(recipeId){
     likeIcon.style.color = "#900C3E"
     let likeBtn = document.getElementById(`likeBtn${recipeId}`)
     likeBtn.setAttribute("onclick",`dislikePostRequest(${recipeId})`)
-        
+
 }
 
 function dislikePostRequest(recipeId){

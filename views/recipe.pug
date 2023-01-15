@@ -11,12 +11,12 @@ body
                     = recipe[0]["nome_receita"].toUpperCase()
                 .recipe-title.m-3
                     - if(isLogged)
-                        - if(recipe["likedByUser"])
-                            a.p-2.rounded-md.like-btn-recipe( style="cursor: pointer" id=`likeBtn${recipe["id_receita"]}` onclick=`dislikePostRequest(${recipe["id_receita"]})`)
-                                i.like-btn-recipe(class="fa-solid fa-heart" id=`likeIcon${recipe["id_receita"]}` style="color:#900C3E")
+                        - if(likedByUser)
+                            a.p-2.rounded-md.like-btn-recipe( style="cursor: pointer" id=`likeBtn${recipe[0]["id_receita"]}` onclick=`dislikePostRequest(${recipe[0]["id_receita"]})`)
+                                i.like-btn-recipe(class="fa-solid fa-heart" id=`likeIcon${recipe[0]["id_receita"]}` style="color:#900C3E")
                         - else
-                            a.p-2.rounded-md.like-btn-recipe( style="cursor: pointer" id=`likeBtn${recipe["id_receita"]}` onclick=`likePostRequest(${recipe["id_receita"]})`)
-                                i.like-btn-recipe(class="fa-solid fa-heart" id=`likeIcon${recipe["id_receita"]}` style="color:#878787")
+                            a.p-2.rounded-md.like-btn-recipe( style="cursor: pointer" id=`likeBtn${recipe[0]["id_receita"]}` onclick=`likePostRequest(${recipe[0]["id_receita"]})`)
+                                i.like-btn-recipe(class="fa-solid fa-heart" id=`likeIcon${recipe[0]["id_receita"]}` style="color:#878787")
             .flex.justify-between.w-full.text-white  
                 img.object-cover.w-full(src=`/img/${recipe[0]["nome_fotos_receita"]}` style="height:400px ")
             .flex.justify-between.w-full.mt-5

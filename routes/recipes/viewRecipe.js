@@ -1,4 +1,5 @@
 const tb_comentarios = require('../../model/tb_comentarios');
+const tb_likes = require('../../model/tb_likes');
 const tb_receitas = require('../../model/tb_receitas');
 const tb_usuarios = require('../../model/tb_usuarios');
 
@@ -19,13 +20,38 @@ const viewRecipe = {
             console.log(err)
         })
 
-        tb_receitas.findAll({where:{id_receita:req.params.id}}).then(resultQuery=>{
-            res.render("recipe.pug", {
-                recipe: resultQuery,
-                isLogged: req.session.isLogged,
-                userId: req.session.userId,
-                comments
-            })
+        tb_receitas.findAll({where:{id_receita:req.params.id}}).then(recipeResultQuery=>{
+            if(typeof req.session.isLogged !="undefined"){
+                tb_likes.findAll({where:{id_receita:req.params.id, id_usuario: req.session.userId}}).then(resultLikeQuery=>{
+                    if(resultLikeQuery){
+                        res.render("recipe.pug", {
+                            recipe: recipeResultQuery,
+                            isLogged: req.session.isLogged,
+                            userId: req.session.userId,
+                            comments,
+                            likedByUser: true
+                        })
+                    }else{
+                        res.render("recipe.pug", {
+                            recipe: recipeResultQuery,
+                            isLogged: req.session.isLogged,
+                            userId: req.session.userId,
+                            comments,
+                            likedByUser: false
+                        })
+                    }
+    
+                    
+                })
+            }else{
+                res.render("recipe.pug", {
+                    recipe: recipeResultQuery,
+                    isLogged: false,
+                    userId: req.session.userId,
+                    comments,
+                    likedByUser: false
+                })
+            }
         })
     }
 }
