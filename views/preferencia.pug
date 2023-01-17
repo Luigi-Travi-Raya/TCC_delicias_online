@@ -1,6 +1,7 @@
 include includes/layout/template.pug
 body 
     include includes/layout/header.pug
+    script( defer src="scripts/fileInputStyle.js") 
     .w-full.bg-secondary.flex.justify-center 
         .container-preferences.container.self-center.p-5.m-5.bg-white
             p.title Configurações
@@ -32,9 +33,9 @@ body
                                 .justify-start.flex
                                     label.self-center(for="email") Foto de Perfil:
                                 .justify-start.block.mb-5
-                                    label.input-form.input-preferences.mt-5.block.text-sm.cursor-pointer.flex.justify-center(for="img") 
+                                    label.input-form.input-preferences.mt-5.block.text-sm.cursor-pointer.flex.justify-center(for="img" id="input_img") 
                                         p.p-3 Escolha uma foto
-                                        input.w-full(type="file" id="img" name="img" style="display:none" onchange="")
+                                    input.w-full(type="file" id="img" name="img" style="display:none" onchange="changeStyle()")
                                     -if (erro == 'file_not_valid')
                                         p.mt-2.text-base.text-red-600 Arquivo não é válido
                                         

@@ -99,6 +99,9 @@ app.post('/post_comment', (req,res)=>{
     Routes.addComment(req,res);
 })
 
+app.post('/busca', (req,res)=>{
+    Routes.search(req,res);
+})
 
 
 

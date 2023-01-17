@@ -63,9 +63,6 @@ const addRecipe = {
                 let newImgPath = path.join(__dirname, '../../public/img' , imgName);
                 fs.rename(imgPath, newImgPath, (err) => { if (err) throw err})
 
-
-                console.log(fields.ingredients.split('\n').replace('\r', ""))
-
                 tb_receitas.create({
                     id_categoria:fields.type,
                     id_autor_usuario:req.session.userId,
