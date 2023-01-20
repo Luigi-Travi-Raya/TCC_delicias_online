@@ -6,12 +6,12 @@ body
             .div.flex.p-1.pl-5
                 img.logo(src='img/logo.png' style="cursor: pointer" onclick="window.location = '/';")
             .div.flex.justify-items-center.self-center.ml-5
-                form(action="/busca", method="post") 
+                form.m-0(action="/busca", method="post") 
                     .bg-white.flex.rounded-full.searchbar(class="p-0.5")
                         input.rounded-l-full.p-2.input.input-search(type="text" id="searchbarText" name="search")
                         input.rounded-full.p-1.pl-5.pr-5.input-btn-search.text-white( type="submit" value="Buscar")
             
-            .container-sm.flex.btns-container.mb-5.mt-5.mr-5
+            .container-sm.flex.btns-container.mb-5.mt-5.mr-5.self-center(class="md:mr-1")
                 -if(!isLogged)
                     input.self-center.rounded-full.input-btn-login.place-end( type="button" value="Login" onclick="window.location = '/login';")
                     input.self-center.rounded-full.pl-5.input-btn-registro(type="button" value="Registro" onclick="window.location = '/registro';")

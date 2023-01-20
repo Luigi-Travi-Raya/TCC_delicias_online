@@ -67,11 +67,12 @@ body
                 ul
                     each comment in comments
                         li.comment-box.m-3.p-2 
-                            .comment-user-data.flex.flex-row 
+                            .comment-user-data.flex.flex-row.break-word.text-ellipsis.overflow-hidden 
                                 img.comment-profile-img.m-2(src=`../img/${comment['nome_foto_autor']}`, alt="")
-                                span.comment-user-name.self-center 
+                                span.comment-user-name.self-center.break-word.text-ellipsis.overflow-hidden 
                                     = comment['nome_autor']
-                            = comment['texto_comentario']   
+                            .break-word.text-ellipsis.overflow-hidden 
+                                = comment['texto_comentario']   
             -if(isLogged)
                 .flex.container-publish-comment.mt-5.mb-3.flex-row.gap-2.p-5
                     div.comment-profile-img Foto de perfil

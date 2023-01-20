@@ -3,12 +3,12 @@ body
     include includes/layout/header.pug
     script( defer src="scripts/indexLike.js") 
     .flex.justify-center
-        .container.index-container.p-5.mt-5.grid.m-5.gap-5(class="grid-cols-4")
+        .container.index-container.p-5.mt-5.grid.m-5.gap-5
             each recipe in recipes
-                .w-80.card-body.mt-5.flex.flex-wrap
+                .w-80.card-body.mt-5.flex.flex-wrap.justify-self-center
                     img.rounded-t-lg.h-64.w-full(src=`img/${recipe["nome_fotos_receita"]}`)
-                    a(href=`/recipe-${recipe["id_receita"]}`)
-                        h5.mb-2.text-2xl.tracking-tight.text-gray-900.card-title.m-4
+                    a.break-word.text-ellipsis.overflow-hidden(href=`/recipe-${recipe["id_receita"]}`)
+                        h5.mb-2.text-2xl.tracking-tight.text-gray-900.card-title.m-4.text-ellipsis.overflow-hidden.break-word
                             = recipe["nome_receita"]
                     p.mb-3.card-desc.break-word.w-full.max-h-12.text-ellipsis.overflow-hidden
                         = recipe["descricao_receita"]
@@ -20,6 +20,6 @@ body
                             - else
                                 a.p-2.rounded-md.like-btn( style="cursor: pointer" id=`likeBtn${recipe["id_receita"]}` onclick=`likePostRequest(${recipe["id_receita"]})`)
                                     i.like-btn(class="fa-solid fa-heart" id=`likeIcon${recipe["id_receita"]}` style="color:#878787")
-                        p.self-center Postado por 
-                            a.card-link(href=`/profile-${recipe["id_autor_usuario"]}`) 
+                        p.self-center.break-word.text-ellipsis.overflow-hidden Postado por 
+                            a.card-link.break-word.text-ellipsis.overflow-hidden(href=`/profile-${recipe["id_autor_usuario"]}`) 
                                 = recipe["nome_autor_usuario"] 

@@ -5,7 +5,6 @@ const Profile = {
     route: async(req,res)=>{
         tb_usuarios.findAll({where: {id_usuario: req.params.id}}).then(resultUserData=>{
             tb_receitas.findAll({where:{id_autor_usuario: req.params.id}}).then(resultRecipesData=>{
-                console.log(resultRecipesData)
                 res.render('profile',{
                     userId:req.session.userId,
                     userName:req.session.username,
