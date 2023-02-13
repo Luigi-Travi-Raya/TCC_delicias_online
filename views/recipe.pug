@@ -17,8 +17,11 @@ body
                         - else
                             a.p-2.rounded-md.like-btn-recipe( style="cursor: pointer" id=`likeBtn${recipe[0]["id_receita"]}` onclick=`likePostRequest(${recipe[0]["id_receita"]})`)
                                 i.like-btn-recipe(class="fa-solid fa-heart" id=`likeIcon${recipe[0]["id_receita"]}` style="color:#878787")
-            .flex.justify-between.w-full.text-white  
-                img.object-cover.w-full(src=`/img/${recipe[0]["nome_fotos_receita"]}` style="height:400px ")
+            .flex.justify-between.w-full.text-white
+                -if(recipe[0]["nome_fotos_receita"] != null)  
+                    img.object-cover.w-full(src=`/img/${recipe[0]["nome_fotos_receita"]}` style="height:400px ")
+                -else
+                    img.object-cover.w-full(src=`/commomImg/logo.svg` style="height:400px; background-color:#fcfcfc ")
             .flex.justify-between.w-full.mt-5
                 .recipe-subtitle.ml-5.self-end  
                     | Descrição
@@ -75,7 +78,10 @@ body
                                 = comment['texto_comentario']   
             -if(isLogged)
                 .flex.container-publish-comment.mt-5.mb-3.flex-row.gap-2.p-5
-                    div.comment-profile-img Foto de perfil
+                    -if(userProfileImg!=null)
+                        img(src=`./img/${userProfileImg}`).comment-profile-img
+                    -else   
+                        img(src=`./commomImg/defaultProfileImg.png`).comment-profile-img
                     textarea.textarea-comment.w-full(name="comment" id="textarea-comment") 
                     button.comment-btn.p-4(type="button" name="diwja" value="comentar" onclick=`postComment(${recipe[0]['id_receita']}, ${userId})`)
                         | COMENTAR

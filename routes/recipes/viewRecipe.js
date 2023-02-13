@@ -23,25 +23,28 @@ const viewRecipe = {
         tb_receitas.findAll({where:{id_receita:req.params.id}}).then(recipeResultQuery=>{
             if(typeof req.session.isLogged !="undefined"){
                 tb_likes.findAll({where:{id_receita:req.params.id, id_usuario: req.session.userId}}).then(resultLikeQuery=>{
-                    if(resultLikeQuery){
-                        res.render("recipe.pug", {
-                            recipe: recipeResultQuery,
-                            isLogged: req.session.isLogged,
-                            userId: req.session.userId,
-                            comments,
-                            likedByUser: true
-                        })
-                    }else{
-                        res.render("recipe.pug", {
-                            recipe: recipeResultQuery,
-                            isLogged: req.session.isLogged,
-                            userId: req.session.userId,
-                            comments,
-                            likedByUser: false
-                        })
-                    }
-    
-                    
+                    tb_usuarios.findAll({where:{id_usuario: req.session.userId}}).then(resultUserQuery=>{
+
+                        if(resultLikeQuery){
+                            res.render("recipe.pug", {
+                                recipe: recipeResultQuery,
+                                isLogged: req.session.isLogged,
+                                userId: req.session.userId,
+                                comments,
+                                likedByUser: true,
+                                userProfileImg: resultUserQuery[0]['nome_foto_usuario']
+                            })
+                        }else{
+                            res.render("recipe.pug", {
+                                recipe: recipeResultQuery,
+                                isLogged: req.session.isLogged,
+                                userId: req.session.userId,
+                                comments,
+                                likedByUser: false,
+                                userProfileImg: resultUserQuery[0]['nome_foto_usuario']
+                            })
+                        }
+                    })
                 })
             }else{
                 res.render("recipe.pug", {

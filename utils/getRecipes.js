@@ -5,12 +5,11 @@ const {Op} = require("sequelize");
 
 
 const getRecipes = async (isLogged,userId,searchTerm)=>{
-    console.log("Search Term: "+searchTerm)
     if(typeof searchTerm != "undefined"){
         console.log(`searchTerm is not undefined `)
         try{
             let recipe =  await tb_receitas.findAll({where:{nome_receita:{[Op.substring]:searchTerm}}});
-            
+  
             for(i = 0; i<recipe.length; i++){
                 await tb_usuarios.findByPk(recipe[i]["id_autor_usuario"]).then(queryResult=>{
                     recipe[i]["nome_autor_usuario"] = queryResult.nome_usuario;

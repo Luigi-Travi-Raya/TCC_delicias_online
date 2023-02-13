@@ -44,6 +44,7 @@ body{
     margin: 0
 }
  .logo{
+    width: 100%;
     max-height: 5rem;
 }
 .searchbar{
@@ -401,7 +402,6 @@ label{
 .comment-profile-img{
     width: 2.25rem;
     height: 2.25rem;
-    background-color: #867BFF;
 }
 .container-publish-comment{
     box-shadow: 0px 5px 4px hsl(0, 0%, 63%);

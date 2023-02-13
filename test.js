@@ -31,7 +31,7 @@ const test = async ()=>{
 
 
 test().then(res=>{
-    fs.writeFile('test.json', res , (err)=>{if(err) throw err})
+    console.log(res)
 })
 
 

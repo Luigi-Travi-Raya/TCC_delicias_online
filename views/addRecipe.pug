@@ -5,7 +5,7 @@ body
     
 
     .w-full.bg-secondary.flex.justify-center.mt-5 
-        .container-add.container.self-center.p-5.m-5.bg-white.container-addRecipe
+        .container-add.container.self-center.p-3.m-5.bg-white.container-addRecipe
             p.title Nova Receita
                 .form.col-span-4.p-5
                     form.form-preferences.pt-5.self-center(action="/recipe/add", method="post" enctype="multipart/form-data")
@@ -73,6 +73,7 @@ body
                                         br
                                     textarea.input-addRecipe(class="w-full" name="steps", cols="10", rows="5") 
                                 .input-container
-                                    label(for="submit_btn") 
-                                    input.input-addRecipe(type="submit", name="submit_btn" onclick="test2()") 
+                                    .input-btn-submit.input-btn.text-center.place-content-center.flex.items-center
+                                        label(for="submit_btn") 
+                                        input.input-addRecipe(type="submit", name="submit_btn" onclick="test2()") 
                                     

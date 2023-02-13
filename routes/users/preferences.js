@@ -9,8 +9,12 @@ const fs = require('fs');
 const Edit = {
     route:(req,res,edit_pswrd)=>{
         if(edit_pswrd){
-            res.render('preferencia', {editPassword: true, isLogged:req.session.isLogged});
-            console.log("Acessando preferencia.pug")
+            if(!req.session.isLogged)
+                res.redirect('/');
+            else{
+                res.render('preferencia', {editPassword: true, isLogged:req.session.isLogged, userName:req.session.username});
+                console.log("Acessando preferencia.pug")
+            }
         }else{
             if(!req.session.isLogged)
                 res.redirect('/');
@@ -74,7 +78,32 @@ const Edit = {
         })
     },
     editPassword:(req,res)=>{
+        let form = new formidable.IncomingForm();
 
+        form.parse(req, (err1,fields,files)=>{
+            if(fields['password'] == "" || fields['new_password'] == "" || fields['confirm_password'] == ""){
+                console.log(`Campos não preenchidos`)
+                req.session.errEditPassword = "missing_fields";
+                return res.redirect('/change_password')
+            }
+            
+            if(fields['new_password'] != fields['confirm_password']){
+                console.log(`senhas nao correspondem`)
+                req.session.errEditPassword = "diferent_passwords";
+                return res.redirect('/change_password')
+            }
+
+            tb_usuarios.findAll({where:{id_usuario:req.session.userId}}).then(queryResult=>{
+                bcrypt.compare(fields['password'], queryResult[0]['senha_usuario']).then(compareResult=>{
+                    if(compareResult){
+                        
+                        console.log("senha alterada")
+                    }else{
+                        console.log("senhas diferente da atual")
+                    }
+                })
+            })
+        })
     }
 }
 module.exports = Edit;
