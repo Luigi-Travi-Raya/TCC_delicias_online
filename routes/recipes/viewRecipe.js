@@ -24,8 +24,8 @@ const viewRecipe = {
             if(typeof req.session.isLogged !="undefined"){
                 tb_likes.findAll({where:{id_receita:req.params.id, id_usuario: req.session.userId}}).then(resultLikeQuery=>{
                     tb_usuarios.findAll({where:{id_usuario: req.session.userId}}).then(resultUserQuery=>{
-
-                        if(resultLikeQuery){
+                        if(typeof resultLikeQuery[0] != "undefined"){
+                            console.log(resultLikeQuery)
                             res.render("recipe.pug", {
                                 recipe: recipeResultQuery,
                                 isLogged: req.session.isLogged,
